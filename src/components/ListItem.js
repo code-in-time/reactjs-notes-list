@@ -3,17 +3,34 @@ import PropTypes from 'prop-types';
 import '../styles/componets/ListItem.css';
 
 class ListItem extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { selected: props.selected };
+
+    this.btnClickActionButton = this.btnClickActionButton.bind(this);
+  }
+
+  btnClickActionButton() {
+    console.log('button clicked', this.state.selected);
+  }
+
   render() {
     return (
       <div className="ListItem">
         <div className="ListItem_left">A note will be added here</div>
         <div className="ListItem_right">
           {this.props.selected === false ? (
-            <button>
+            <button
+              className="actionButton"
+              onClick={this.btnClickActionButton}
+            >
               <div className="fa fa-check fa-lg" />
             </button>
           ) : (
-            <button>
+            <button
+              className="actionButton"
+              onClick={this.btnClickActionButton}
+            >
               <div className="fa fa-times fa-lg" />
             </button>
           )}
