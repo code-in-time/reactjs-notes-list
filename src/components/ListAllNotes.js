@@ -7,7 +7,12 @@ class ListAllNotes extends Component {
   // Render the List items
   buildListItems() {
     return Object.keys(this.props.appStateNotes)
-      .map(item => <ListItem key={this.props.appStateNotes[item].id} note={this.props.appStateNotes[item]} />);
+      .map(item => (
+        <ListItem
+          key={this.props.appStateNotes[item].id}
+          note={this.props.appStateNotes[item]}
+          updateAppNote={this.props.updateAppNote}
+        />));
   }
 
   render() {
@@ -25,4 +30,5 @@ export default ListAllNotes;
 
 ListAllNotes.propTypes = {
   appStateNotes: PropTypes.object.isRequired,
+  updateAppNote: PropTypes.func.isRequired,
 };

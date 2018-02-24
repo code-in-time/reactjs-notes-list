@@ -9,6 +9,8 @@ class App extends Component {
   constructor(props) {
     super(props);
 
+    this.updateAppNote = this.updateAppNote.bind(this);
+
     // Setup the state
     this.state = {
       notes: {
@@ -33,17 +35,21 @@ class App extends Component {
           selected: false,
         },
       },
-
     };
   }
 
-  // updateAppNote(id, note, selected) {
-  //   // for (const value of this.state.notes) {
-  //   //   if (value.id === id) {
-  //   //     console.log(value);
-  //   //   }
-  //   // }
-  // }
+  updateAppNote(note) {
+    // Create a new state object
+    const newNotes = { ...this.state.notes };
+    // Toggle the selected value
+    newNotes[note.id].selected = !newNotes[note.id].selected;
+
+    console.log(`clck + ${note}`, [this, note]);
+    // Update the state
+    this.setState({
+      notes: newNotes,
+    });
+  }
 
   render() {
     return (
@@ -51,7 +57,10 @@ class App extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col col-xs-6 box">
-              <ListAllNotes appStateNotes={this.state.notes} />
+              <ListAllNotes
+                appStateNotes={this.state.notes}
+                updateAppNote={this.updateAppNote}
+              />
             </div>
             <div className="col col-xs-6 box">
               {/* <ListSelectedNotes appStateNotes={this.state.notes} /> */}
