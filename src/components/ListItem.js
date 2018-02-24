@@ -5,13 +5,13 @@ import '../styles/componets/ListItem.css';
 class ListItem extends Component {
   constructor(props) {
     super(props);
-    this.state = { selected: props.selected };
+    this.state = { note: props.note };
 
     this.btnClickActionButton = this.btnClickActionButton.bind(this);
   }
 
   btnClickActionButton() {
-    console.log('button clicked', this.state.selected);
+    console.log('button clicked', this.state.note.selected);
   }
 
   render() {
@@ -19,7 +19,7 @@ class ListItem extends Component {
       <div className="ListItem">
         <div className="ListItem_left">A note will be added here</div>
         <div className="ListItem_right">
-          {this.props.selected === false ? (
+          {this.state.note.selected === false ? (
             <button
               className="actionButton"
               onClick={this.btnClickActionButton}
@@ -43,5 +43,5 @@ class ListItem extends Component {
 export default ListItem;
 
 ListItem.propTypes = {
-  selected: PropTypes.bool.isRequired,
+  note: PropTypes.object.isRequired,
 };
