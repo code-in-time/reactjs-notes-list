@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 
 import '../styles/componets/App.css';
 import ListAllNotes from './ListAllNotes';
-// import ListSelectedNotes from './ListSelectedNotes';
 
 class App extends Component {
   constructor(props) {
@@ -58,12 +57,17 @@ class App extends Component {
           <div className="row">
             <div className="col col-xs-6 box">
               <ListAllNotes
+                listsOfSelected={false}
                 appStateNotes={this.state.notes}
                 updateAppNote={this.updateAppNote}
               />
             </div>
             <div className="col col-xs-6 box">
-              {/* <ListSelectedNotes appStateNotes={this.state.notes} /> */}
+              <ListAllNotes
+                listsOfSelected
+                appStateNotes={this.state.notes}
+                updateAppNote={this.updateAppNote}
+              />
             </div>
           </div>
         </div>

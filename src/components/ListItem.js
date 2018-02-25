@@ -6,7 +6,7 @@ class ListItem extends Component {
   render() {
     return (
       <div className="ListItem">
-        <div className="ListItem_left">A note will be added here</div>
+        <div className="ListItem_left">{this.props.note.text}</div>
         <div className="ListItem_right">
           {this.props.note.selected === false ? (
             <button
@@ -32,6 +32,8 @@ class ListItem extends Component {
 export default ListItem;
 
 ListItem.propTypes = {
+  // // This must be 'seleted' or 'unselected'
+  // listType: PropTypes.string.isRequired,
   note: PropTypes.object.isRequired,
   updateAppNote: PropTypes.func.isRequired,
 };
