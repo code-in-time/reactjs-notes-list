@@ -6,7 +6,8 @@ module.exports = {
         "react/forbid-prop-types": 0,
         "quotes": [2, "single", "avoid-escape"],
         'no-console': 'off',
-        "max-len": ["error", { "code": 180 }]
+        "max-len": ["error", { "code": 180 }],
+        "no-plusplus": 'off'
       },
       "globals": {
         "document": false,
