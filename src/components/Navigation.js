@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 export default class Navigation extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-        <ul className="navbar-nav">
+        <ul className="nav nav-pills">
           <li className="nav-item">
-            <Link to="/" className="nav-link" activeClassName="active">HOME</Link>
+            <NavLink exact to="/" className="nav-link">HOME</NavLink>
           </li>
           <li className="nav-item">
-            <Link to="/other" className="nav-link" activeClassName="active">OTHER</Link>
+            <NavLink {...this.props} to="/other" className="nav-link">OTHER</NavLink>
           </li>
         </ul>
       </nav>
