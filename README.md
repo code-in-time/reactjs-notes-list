@@ -11,4 +11,4 @@
 
 ## Planning notes are here
 
-- Z_PLANNING/Planning_a_notes_list.png
+- Doc/Planning/Planning_a_notes_list.png

@@ -29,7 +29,7 @@ class ListItem extends Component {
           ID: {this.props.note.id}
           <br />
           {this.props.note.text}
-          </div>
+        </div>
         <div className="ListItem_right">
           {this.props.note.selected === false ? (
             <button

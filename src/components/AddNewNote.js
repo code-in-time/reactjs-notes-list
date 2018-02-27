@@ -15,11 +15,11 @@ class AddNewNote extends Component {
   }
 
   onChangeInput(evt) {
-        // Set the state
-        this.setState({
-          // Get the text from the input
-          noteText: evt.target.value,
-        });
+    // Set the state
+    this.setState({
+      // Get the text from the input
+      noteText: evt.target.value,
+    });
   }
 
   render() {
