@@ -106,15 +106,11 @@ class App extends Component {
             <div className="col col-xs-6 box">
               <ListAllNotes
                 listsOfSelected={false}
-                appStateNotes={this.state.notes}
-                updateAppNote={this.updateAppNote}
               />
             </div>
             <div className="col col-xs-6 box">
               <ListAllNotes
                 listsOfSelected
-                appStateNotes={this.state.notes}
-                updateAppNote={this.updateAppNote}
               />
             </div>
           </div>

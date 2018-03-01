@@ -32,6 +32,29 @@ const initialState = [
   },
 ];
 
+
+/**
+ * This will toggle the seleced value of note that matches the ID that was passed.
+ * Pass in a clone of the state and the note ID
+ */
+const toggleSelected = (clonedNotes, id) => {
+  const newNotes = clonedNotes;
+  const noteLength = newNotes.length;
+
+  for (let i = 0; i < noteLength; i++) {
+    // Check for the note that changed
+    if (newNotes[i].id === id) {
+      // This is the note that must be updated.
+      // Update this note
+      newNotes[i].selected = !newNotes[i].selected;
+      // Exit the loop
+      break;
+    }
+  }
+  // Return the cloned array of notes
+  return newNotes;
+};
+
 /**
  * The Note reducer.
  * This will hold all the data for notes.
@@ -56,15 +79,10 @@ const noteReducer = (state = initialState, action) => {
       // }
       break;
 
-    case actionTypes.NOTE_SELECTED_CHANGE:
-      // The selected property of the matched not must be toggled.
-      console.log('actionTypes.NOTE_SELECTED_CHANGE');
-      // TODO: Still TODO
-      // state = {
-      //     ...state,
-      //     age: action.payload
-      // }
-      break;
+    case actionTypes.NOTE_SELECTED_TOGGLE:
+      // The selected property of the matched not must be toggled
+      // Pass in a clone of the state and the note ID
+      return toggleSelected([...state], action.payload);
 
     default:
       console.log('No actions match');

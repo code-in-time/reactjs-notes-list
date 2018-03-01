@@ -8,11 +8,14 @@ module.exports = {
         "no-console": "off",
         "max-len": ["error", { "code": 180 }],
         "no-plusplus": "off",
-        "jsx-a11y/anchor-is-valid": "off"
+        "jsx-a11y/anchor-is-valid": "off",
+        "no-case-declarations": "off",
+        "no-param-reassign": "off"
       },
       "globals": {
         "document": false,
         "it": false,
+        "window": false
 
       }
 };

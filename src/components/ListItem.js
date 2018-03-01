@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import '../styles/componets/ListItem.css';
+import actionTypes from '../actionTypes';
 
 class ListItem extends Component {
   constructor() {
@@ -19,7 +21,7 @@ class ListItem extends Component {
     // Toggle the selected value
     newNote.selected = !newNote.selected;
 
-    this.props.updateAppNote(newNote);
+    this.props.noteSelectedToggle(this.props.note.id);
   }
 
   render() {
@@ -52,10 +54,20 @@ class ListItem extends Component {
   }
 }
 
-export default ListItem;
+const mapDispatchToProps = dispatch => ({
+  noteSelectedToggle: (ID) => {
+    dispatch({
+      type: actionTypes.NOTE_SELECTED_TOGGLE,
+      payload: ID,
+    });
+  },
+});
+
+export default connect(null, mapDispatchToProps)(ListItem);
+
 
 ListItem.propTypes = {
-
   note: PropTypes.object.isRequired,
-  updateAppNote: PropTypes.func.isRequired,
+  // The is set by redux
+  noteSelectedToggle: PropTypes.func.isRequired,
 };
