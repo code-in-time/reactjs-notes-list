@@ -1,6 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// Redux
+import { Provider } from 'react-redux';
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import { createLogger } from 'redux-logger';
+
+// Componenets
 import PageHome from './components/PageHome';
 import PageOther from './components/PageOther';
 
