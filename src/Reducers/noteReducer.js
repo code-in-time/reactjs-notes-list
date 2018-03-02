@@ -37,8 +37,9 @@ const initialState = [
  * This will toggle the seleced value of note that matches the ID that was passed.
  * Pass in a clone of the state and the note ID
  */
-const toggleSelected = (clonedNotes, id) => {
-  const newNotes = clonedNotes;
+
+const toggleSelected = (clonedNotesState, id) => {
+  const newNotes = clonedNotesState;
   const noteLength = newNotes.length;
 
   for (let i = 0; i < noteLength; i++) {
