@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import actionTypes from '../actionTypes';
+
 import '../styles/componets/AddNewNote.css';
 
 class AddNewNote extends Component {
@@ -31,7 +34,7 @@ class AddNewNote extends Component {
             <input value={this.state.noteText}onChange={this.onChangeInput} placeholder="Add new note here" type="text" name="" id="" style={{ width: '100%' }} />
           </div>
           <div className="col">
-            <button onClick={() => this.props.addAppNote(this.state.noteText)} className="btn btn-primary">add</button>
+            <button onClick={() => this.props.noteCreate(this.state.noteText)} className="btn btn-primary">add</button>
           </div>
         </div>
       </div>
@@ -39,8 +42,18 @@ class AddNewNote extends Component {
   }
 }
 
-export default AddNewNote;
-
 AddNewNote.propTypes = {
-  addAppNote: PropTypes.func.isRequired,
+  noteCreate: PropTypes.func.isRequired,
 };
+
+const mapDispatchToProps = dispatch => ({
+  noteCreate: (text) => {
+    dispatch({
+      type: actionTypes.NOTE_CREATE,
+      payload: text,
+    });
+  },
+});
+
+export default connect(null, mapDispatchToProps)(AddNewNote);
+
