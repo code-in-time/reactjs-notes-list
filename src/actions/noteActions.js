@@ -13,3 +13,7 @@ export const actionNoteSelectedToggle = ID => ({
 export const actionNoteGetLatest = () => ({
   type: actionTypes.NOTE_GET_LATEST,
 });
+
+export const actionNoteClearAll = () => ({
+  type: actionTypes.NOTE_CLEAR_ALL,
+});

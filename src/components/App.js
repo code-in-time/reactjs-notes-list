@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import '../styles/componets/App.css';
 import ListAllNotes from './ListAllNotes';
-import AddNewNote from './AddNewNote';
+import NoteControls from './NoteControls';
 
 class App extends Component {
   render() {
@@ -12,7 +12,7 @@ class App extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col">
-              <AddNewNote />
+              <NoteControls />
             </div>
           </div>
           <div className="row">

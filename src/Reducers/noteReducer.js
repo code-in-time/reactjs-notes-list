@@ -71,6 +71,12 @@ const noteReducer = (state = [], action) => {
       state = [...initialNoteData];
       break;
 
+    case actionTypes.NOTE_CLEAR_ALL:
+      // Clear all the notes
+      // There is no payload
+      state = [];
+      break;
+
     default:
       console.log('No actions match');
   }

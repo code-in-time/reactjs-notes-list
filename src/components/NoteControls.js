@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 import '../styles/componets/AddNewNote.css';
-import { actionNoteCreate } from '../actions/noteActions';
+import { actionNoteCreate, actionNoteClearAll, actionNoteGetLatest } from '../actions/noteActions';
 
-class AddNewNote extends Component {
+class NoteControls extends Component {
   constructor(props) {
     super(props);
     this.onChangeInput = this.onChangeInput.bind(this);
@@ -36,21 +36,31 @@ class AddNewNote extends Component {
           <div className="col">
             <button onClick={() => this.props.actionNoteCreate(this.state.noteText)} className="btn btn-primary">add</button>
           </div>
+          <div className="col">
+            <div className="btn-group btn-group-sm">
+              <button onClick={() => this.props.actionNoteClearAll()} className="btn btn-danger">Clear all Notes</button>
+              <button onClick={() => this.props.actionNoteGetLatest()} className="btn">RELOAD</button>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 }
 
-AddNewNote.propTypes = {
+NoteControls.propTypes = {
   actionNoteCreate: PropTypes.func.isRequired,
+  actionNoteClearAll: PropTypes.func.isRequired,
+  actionNoteGetLatest: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = {
   actionNoteCreate,
+  actionNoteClearAll,
+  actionNoteGetLatest,
 };
 
-export default connect(null, mapDispatchToProps)(AddNewNote);
+export default connect(null, mapDispatchToProps)(NoteControls);
 
 
 // NB : NOTE
