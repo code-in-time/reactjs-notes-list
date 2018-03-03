@@ -1,8 +1,6 @@
 # reactjs-notes-list
 
-THE GOAL IS TO USE REDUX to manage state
-
-- This is to experiment moving items from one list to another using react
+I am learning how to use react and redux
 
 ## How start the App
 
