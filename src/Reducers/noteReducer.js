@@ -1,37 +1,11 @@
 import actionTypes from '../constants/actionTypes';
+import initialNoteData from '../Data/initialNoteData';
 
 /**
  * ----------------------------------
  * The Note Reducer file.
  * ----------------------------------
  */
-
-/**
- * The initial state for the noteReducer
- */
-const initialState = [
-  {
-    id: 1,
-    text: 'this is text 1',
-    selected: false,
-  },
-  {
-    id: 2,
-    text: 'this is text 2',
-    selected: false,
-  },
-  {
-    id: 3,
-    text: 'this is text 3',
-    selected: false,
-  },
-  {
-    id: 4,
-    text: 'this is text 4',
-    selected: false,
-  },
-];
-
 
 /**
  * This will toggle the seleced value of note that matches the ID that was passed.
@@ -68,7 +42,7 @@ const toggleSelected = (clonedNotesState, id) => {
  *   }],
  * @param {string} action the actions are all found here 'actionTypes.js'
  */
-const noteReducer = (state = initialState, action) => {
+const noteReducer = (state = [], action) => {
   switch (action.type) {
     case actionTypes.NOTE_CREATE:
       // A new note must be created
@@ -91,11 +65,18 @@ const noteReducer = (state = initialState, action) => {
       // NOTE: action.payload -  will be the ID of the note.
       return toggleSelected([...state], action.payload);
 
+    case actionTypes.NOTE_GET_LATEST:
+      // Get the lastest notes
+      // There is no payload
+      state = [...initialNoteData];
+      break;
+
     default:
       console.log('No actions match');
   }
 
   return state;
 };
+
 
 export default noteReducer;
