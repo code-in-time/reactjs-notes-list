@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import actionTypes from '../constants/actionTypes';
 
 import '../styles/componets/AddNewNote.css';
+import { actionNoteCreate } from '../actions/noteActions';
 
 class AddNewNote extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class AddNewNote extends Component {
             <input value={this.state.noteText}onChange={this.onChangeInput} placeholder="Add new note here" type="text" name="" id="" style={{ width: '100%' }} />
           </div>
           <div className="col">
-            <button onClick={() => this.props.noteCreate(this.state.noteText)} className="btn btn-primary">add</button>
+            <button onClick={() => this.props.actionNoteCreate(this.state.noteText)} className="btn btn-primary">add</button>
           </div>
         </div>
       </div>
@@ -43,17 +43,23 @@ class AddNewNote extends Component {
 }
 
 AddNewNote.propTypes = {
-  noteCreate: PropTypes.func.isRequired,
+  actionNoteCreate: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-  noteCreate: (text) => {
-    dispatch({
-      type: actionTypes.NOTE_CREATE,
-      payload: text,
-    });
-  },
-});
+const mapDispatchToProps = {
+  actionNoteCreate,
+};
 
 export default connect(null, mapDispatchToProps)(AddNewNote);
 
+
+// NB : NOTE
+// This is how an action creater is added if it is in this file
+// const mapDispatchToProps = dispatch => ({
+//   noteCreate: (text) => {
+//     dispatch({
+//       type: actionTypes.NOTE_CREATE,
+//       payload: text,
+//     });
+//   },
+// });

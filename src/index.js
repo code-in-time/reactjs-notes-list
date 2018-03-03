@@ -8,8 +8,8 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
 // Componenets
-import PageHome from './components/PageHome';
-import PageOther from './components/PageOther';
+import PageHome from './components/pages/PageHome';
+import PageOther from './components/pages/PageOther';
 
 
 import registerServiceWorker from './registerServiceWorker';
