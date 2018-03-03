@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import '../styles/componets/ListItem.css';
-import actionTypes from '../actionTypes';
+import actionTypes from '../constants/actionTypes';
 
 class ListItem extends Component {
   constructor() {

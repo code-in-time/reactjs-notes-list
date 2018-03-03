@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import actionTypes from '../actionTypes';
+import actionTypes from '../constants/actionTypes';
 
 import '../styles/componets/AddNewNote.css';
 
