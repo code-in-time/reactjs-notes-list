@@ -14,8 +14,11 @@ module.exports = {
       },
       "globals": {
         "document": false,
+        "window": false,
+        // These are for testing
+        "expect": false,
         "it": false,
-        "window": false
+        //
 
       }
 };

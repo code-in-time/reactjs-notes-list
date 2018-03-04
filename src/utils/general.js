@@ -10,4 +10,12 @@ export const deepCloneArray = arr => JSON.parse(JSON.stringify(arr));
  * This is a shortcut to write a console.log();
  * @param logMsg - (string or array)
  */
-export const log = logMsg => console.log(logMsg);
+export const logger = logMsg => console.log(logMsg);
+
+
+/**
+ * This will add two number together;
+ * @param numb1 - (int)
+ * @param numb2 - (int)
+ */
+export const add = (numb1, numb2) => numb1 + numb2;
