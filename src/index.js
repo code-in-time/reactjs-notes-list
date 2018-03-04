@@ -14,11 +14,12 @@ import PageOther from './components/pages/PageOther';
 
 import registerServiceWorker from './registerServiceWorker';
 
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import '../node_modules/font-awesome/css/font-awesome.min.css';
-import './styles/index.css';
 import rootReducer from './Reducers/index';
 import { actionNoteGetLatest } from './actions/noteActions';
+
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import '../node_modules/font-awesome/css/font-awesome.min.css';
+import './index.css';
 
 
 // TODO: Turn redux devtools off for production

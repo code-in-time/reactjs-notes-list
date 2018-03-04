@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import '../styles/componets/ListAllNotes.css';
 import ListItem from './ListItem';
 
 class ListAllNotes extends Component {

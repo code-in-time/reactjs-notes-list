@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import '../styles/componets/AddNewNote.css';
 import { actionNoteCreate, actionNoteClearAll, actionNoteGetLatest } from '../actions/noteActions';
 
 class NoteControls extends Component {
@@ -27,7 +26,7 @@ class NoteControls extends Component {
 
   render() {
     return (
-      <div className="AddNewNote card card-body bg-light">
+      <div className="NoteControls card card-body bg-light">
         <h3>Create a new note</h3>
         <div className="row">
           <div className="col">

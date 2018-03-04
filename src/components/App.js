@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-import '../styles/componets/App.css';
+import './App.css';
 import ListAllNotes from './ListAllNotes';
 import NoteControls from './NoteControls';
 
