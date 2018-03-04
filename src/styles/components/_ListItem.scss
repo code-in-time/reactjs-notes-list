@@ -1,5 +1,5 @@
 div.ListItem {
-    background: red;
+    background: $colorRed;
     width: 100%;
     height: 50px;
     border-radius: 5px;
@@ -10,7 +10,6 @@ div.ListItem {
 }
 
 div.ListItem_left {
-    background-color: orange;
     flex-grow: 3;
     padding: 5px;
     display: flex;
@@ -19,7 +18,7 @@ div.ListItem_left {
 
 }
 div.ListItem_right {
-    background-color: yellow;
+    background-color: $colorYellow;
     flex-grow: 1;
     display: flex;
     justify-content: center;

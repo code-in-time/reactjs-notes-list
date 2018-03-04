@@ -19,7 +19,7 @@ import { actionNoteGetLatest } from './actions/noteActions';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
-import './index.css';
+import './styles/index.css';
 
 
 // TODO: Turn redux devtools off for production

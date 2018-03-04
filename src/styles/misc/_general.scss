@@ -1,0 +1,11 @@
+body {
+    margin: 0;
+    padding: 0;
+    @extend %fontPrimary;
+  }
+  
+  button {
+    cursor: pointer;
+    border: 0px;
+  }
+  
