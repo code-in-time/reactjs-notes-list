@@ -1,5 +1,6 @@
 import actionTypes from '../constants/actionTypes';
-import initialNoteData from '../Data/initialNoteData';
+import initialNoteData from '../data/initialNoteData';
+import { deepCloneArray } from '../utils/general';
 
 /**
  * ----------------------------------
@@ -68,7 +69,8 @@ const noteReducer = (state = [], action) => {
     case actionTypes.NOTE_GET_LATEST:
       // Get the lastest notes
       // There is no payload
-      state = [...initialNoteData];
+      // Doa  deep clone of the initial note data
+      state = deepCloneArray(initialNoteData);
       break;
 
     case actionTypes.NOTE_CLEAR_ALL:
