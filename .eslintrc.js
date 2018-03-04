@@ -18,6 +18,7 @@ module.exports = {
         // These are for testing
         "expect": false,
         "it": false,
+        "jest": false,
         //
 
       }

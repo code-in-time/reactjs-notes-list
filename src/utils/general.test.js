@@ -1,21 +1,19 @@
-import { add, logger as log } from './general';
+import { add, logger } from './general';
 
-// TODO how do you test a console.log in jest?
-// /**
-//  * This is a shortcut to write a console.log();
-//  * @param logMsg - (string or array)
-//  */
-// // export const log = logMsg => console.log(logMsg);
-// it('console.log the text hello', () => {
-//   log = jest.fn('hello');
-//   expect(log).to('hello');
-// });
+it('console.log the text "hello"', () => {
+  console.log = jest.fn();
+  logger('hello');
+  // The first argument of the first call to the function was 'hello'
+  expect(console.log.mock.calls[0][0]).toBe('hello');
+});
 
-// it('console.log the text "hello"', () => {
-//   console.log = jest.fn('hello');
-//   log('hello');
+// TODO how do I test for the object as the second parameter?
+// it('console.log the text "my", {}', () => {
+//   console.log = jest.fn();
+//   logger('my', 1);
 //   // The first argument of the first call to the function was 'hello'
-//   expect(console.log.mock.calls[0][0]).toBe('hello');
+//   expect(console.log.mock.calls[0][0]).toBe('my');
+//   expect(console.log.mock.calls[0][1]).toBe(1);
 // });
 
 
