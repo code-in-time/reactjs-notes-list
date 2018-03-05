@@ -1,0 +1,8 @@
+################
+# This file is here so that the local setting can be saved in version control.
+# To override using these variables create a file called .env.local (copy and rename this file)
+# .env.local will not be saved in version control.
+################
+
+# Setup the environment variables
+REACT_APP_ENV=development
