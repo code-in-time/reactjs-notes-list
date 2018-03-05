@@ -62,6 +62,6 @@ ReactDOM.render(<Provider store={store}><IndexWrapper /></Provider>, document.ge
 registerServiceWorker();
 
 // Show the development environment except for production.
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.REACT_APP_ENV !== 'production') {
   console.log(process.env.REACT_APP_ENV);
 }
