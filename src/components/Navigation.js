@@ -10,7 +10,7 @@ export default class Navigation extends Component {
             <NavLink exact to="/" className="nav-link">HOME</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink {...this.props} to="/other" className="nav-link">OTHER</NavLink>
+            <NavLink {...this.props} to="/movies" className="nav-link">MOVIES</NavLink>
           </li>
         </ul>
       </nav>

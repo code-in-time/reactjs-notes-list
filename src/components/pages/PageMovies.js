@@ -7,7 +7,7 @@ import MovieContainer from '../MovieContainer';
  * @class Other
  * @extends {Component}
  */
-class PageOther extends Component {
+class PageMovies extends Component {
   render() {
     return (
       <div className="Home">
@@ -15,7 +15,6 @@ class PageOther extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col">
-              This is the other page
               <MovieContainer />
             </div>
           </div>
@@ -25,4 +24,4 @@ class PageOther extends Component {
   }
 }
 
-export default PageOther;
+export default PageMovies;

@@ -8,7 +8,7 @@ import { PropTypes } from 'prop-types';
 
 // Componenets
 import PageHome from './components/pages/PageHome';
-import PageOther from './components/pages/PageOther';
+import PageMovies from './components/pages/PageMovies';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -44,7 +44,7 @@ class Index extends Component {
       <Router>
         <Switch>
           <Route exact path="/" component={PageHome} />
-          <Route path="/other" component={PageOther} />
+          <Route path="/movies" component={PageMovies} />
         </Switch>
       </Router>
     );

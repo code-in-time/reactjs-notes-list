@@ -17,7 +17,11 @@ class MovieContainer extends Component {
   }
 
   render() {
-    return <div className="MovieContainer">MovieContainer</div>;
+    return (
+      <div className="MovieContainer">
+        <p>There is an API call that is return data to the console.</p>
+      </div>
+    );
   }
 }
 
