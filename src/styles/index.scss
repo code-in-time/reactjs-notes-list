@@ -5,11 +5,12 @@
 
 @import './misc/_general.scss';
 @import './misc/_helpers.scss';
+
+
 // Components
 @import './components/pages/_PageHome.scss';
 @import './components/pages/_PageOther.scss';
 
 @import './components/_App.scss';
 @import './components/_ListItem.scss';
-
-
+@import './components/_MovieContainer.scss';

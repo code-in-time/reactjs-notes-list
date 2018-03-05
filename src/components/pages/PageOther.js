@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from '../Navigation';
+import MovieContainer from '../MovieContainer';
 
 /**
  * This is the other Page
@@ -15,6 +16,7 @@ class PageOther extends Component {
           <div className="row">
             <div className="col">
               This is the other page
+              <MovieContainer />
             </div>
           </div>
         </div>
