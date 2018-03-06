@@ -5,14 +5,21 @@ import PropTypes from 'prop-types';
 class PhoneBookEntryDataDisplay extends Component {
   /**
    * This will render the contents of the phone book.
+   * @param {string} searchTermFilter Test that is being searched
    */
-  buildRowData() {
-    return this.props.phoneBookReducerData.map((item, i) => (
-      <tr key={i}>
-        <td>{item.name}</td>
-        <td>{item.phoneNumber}</td>
-      </tr>
-    ));
+  buildRowData(searchTermFilter) {
+    return this.props.phoneBookReducerData.map((item, i) => {
+      // This the the filter check.
+      // If the phoneNumber or the name matched then show the row,
+      if (item.name === searchTermFilter || item.phoneNumber === searchTermFilter || searchTermFilter === '') {
+        return (
+          <tr key={i}>
+            <td>{item.name}</td>
+            <td>{item.phoneNumber}</td>
+          </tr>);
+      }
+      return '';
+    });
   }
 
   render() {
@@ -26,7 +33,7 @@ class PhoneBookEntryDataDisplay extends Component {
               <th>Phone number</th>
             </tr>
           </thead>
-          <tbody>{this.buildRowData()}</tbody>
+          <tbody>{this.buildRowData(this.props.phoneBookReducerSearchTerm)}</tbody>
         </table>
       </div>
     );

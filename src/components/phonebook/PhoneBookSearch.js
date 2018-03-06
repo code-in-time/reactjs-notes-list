@@ -14,7 +14,7 @@ class PhoneBookSearch extends Component {
             <input
               value={this.props.phoneBookReducerSearchTerm}
               onChange={e => this.props.actionPhoneBookSearch(e.target.value)}
-              placeholder="phoneNumber"
+              placeholder="enter a searm term here"
               type="text"
               style={{ width: '100%' }}
             />
@@ -26,14 +26,12 @@ class PhoneBookSearch extends Component {
 }
 
 PhoneBookSearch.propTypes = {
-  // phoneBookReducerData: PropTypes.array.isRequired,
   phoneBookReducerSearchTerm: PropTypes.string.isRequired,
   actionPhoneBookSearch: PropTypes.func.isRequired,
 };
 
 // Using redux the phonebookReducer properties are now props
 const mapStateToProps = state => ({
-  phoneBookReducerData: state.phoneBookReducer.data,
   phoneBookReducerSearchTerm: state.phoneBookReducer.searchTerm,
 });
 
