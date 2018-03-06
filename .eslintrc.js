@@ -10,7 +10,8 @@ module.exports = {
         "no-plusplus": "off",
         "jsx-a11y/anchor-is-valid": "off",
         "no-case-declarations": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "react/no-array-index-key": "off"
       },
       "globals": {
         "document": false,

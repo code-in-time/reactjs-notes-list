@@ -17,7 +17,9 @@ const phoneBookReducer = (state = initialPhoneBookData, action) => {
     //   break;
 
     case actionTypes.PHONEBOOK_ENTRY_ADD:
+      // Clone the state.
       state = deepClone(state);
+      // Add the New phone entry
       state.data = [...state.data,
         {
           name: action.payload.name,

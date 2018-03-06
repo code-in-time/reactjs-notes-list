@@ -9,6 +9,7 @@ class PhoneBookEntryAdd extends Component {
     super(props);
     this.onChangeInputName = this.onChangeInputName.bind(this);
     this.onChangeInputPhoneNumber = this.onChangeInputPhoneNumber.bind(this);
+    this.clickAddBtn = this.clickAddBtn.bind(this);
 
     // Set the state
     this.state = {
@@ -30,11 +31,14 @@ class PhoneBookEntryAdd extends Component {
       phoneNumber: e.target.value,
     });
   }
+  clickAddBtn() {
+    this.props.actionPhoneBookEntryAdd(this.state.name, this.state.phoneNumber);
+  }
 
   render() {
     return (
       <div className="PhoneBookEntryAdd card card-body bg-light">
-        <h3>Add new entry the the Phone book</h3>
+        <h3>Add a new entry to the Phone Book</h3>
         <div className="row">
           <div className="col">
             <input value={this.state.name} onChange={this.onChangeInputName} placeholder="name" type="text" style={{ width: '100%' }} />
@@ -42,8 +46,9 @@ class PhoneBookEntryAdd extends Component {
           </div>
           <div className="col">
             <button
-              onClick={() => this.props.actionPhoneBookEntryAdd({ name: this.state.name, phoneNumber: this.state.phoneNumber })}
+              onClick={() => this.clickAddBtn()}
               className="btn btn-primary"
+              disabled={this.state.phoneNumber === '' || this.state.name === ''}
             >add
             </button>
           </div>
@@ -52,7 +57,6 @@ class PhoneBookEntryAdd extends Component {
     );
   }
 }
-
 
 PhoneBookEntryAdd.propTypes = {
   actionPhoneBookEntryAdd: PropTypes.func.isRequired,

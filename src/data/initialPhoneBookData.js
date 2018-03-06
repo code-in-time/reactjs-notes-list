@@ -14,5 +14,5 @@ export default {
     },
   ],
   // The search term
-  searchTerm: '',
+  searchTerm: 'gggggg',
 };
