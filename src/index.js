@@ -9,6 +9,7 @@ import { PropTypes } from 'prop-types';
 // Componenets
 import PageHome from './components/pages/PageHome';
 import PageMovies from './components/pages/PageMovies';
+import PagePhoneBook from './components/pages/PagePhoneBook';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -45,6 +46,7 @@ class Index extends Component {
         <Switch>
           <Route exact path="/" component={PageHome} />
           <Route path="/movies" component={PageMovies} />
+          <Route path="/phone" component={PagePhoneBook} />
         </Switch>
       </Router>
     );

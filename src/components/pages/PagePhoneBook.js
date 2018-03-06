@@ -1,21 +1,21 @@
 import React, { Component } from 'react';
-import App from '../App';
 import Navigation from '../Navigation';
+import PhoneBookEntryAdd from '../phonebook/PhoneBookEntryAdd';
 
 /**
  * This the the home Page
  * @class Home
  * @extends {Component}
  */
-class PageHome extends Component {
+class PagePhoneBook extends Component {
   render() {
     return (
-      <div className="PageHome">
+      <div className="PagePhoneBook">
         <Navigation />
-        <App />
+        <PhoneBookEntryAdd />
       </div>
     );
   }
 }
 
-export default PageHome;
+export default PagePhoneBook;

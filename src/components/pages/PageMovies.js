@@ -10,7 +10,7 @@ import MovieContainer from '../MovieContainer';
 class PageMovies extends Component {
   render() {
     return (
-      <div className="Home">
+      <div className="PageMovies">
         <Navigation />
         <div className="container-fluid">
           <div className="row">
