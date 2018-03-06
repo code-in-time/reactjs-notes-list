@@ -25,8 +25,8 @@ export const actionPhoneBookEntryAdd = (name, phoneNumber) => ({
  * This action to get the number or name to search in the phone book data
  * @param {string} searchTerm The searm term this can be a number or a name
  */
-export const actionPhoneBookSearchTerm = searchTerm => ({
-  type: actionTypes.PHONEBOOK_ENTRY_ADD,
+export const actionPhoneBookSearch = searchTerm => ({
+  type: actionTypes.PHONEBOOK_SEARCH,
   payload: {
     searchTerm,
   },

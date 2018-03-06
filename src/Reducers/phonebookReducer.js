@@ -29,6 +29,14 @@ const phoneBookReducer = (state = initialPhoneBookData, action) => {
 
       break;
 
+    case actionTypes.PHONEBOOK_SEARCH:
+      // Clone the state.
+      state = deepClone(state);
+      // Update the search term
+      state.searchTerm = action.payload.searchTerm;
+
+      break;
+
     default:
       console.log('No actions match');
   }
