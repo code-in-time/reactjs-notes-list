@@ -8,7 +8,7 @@ class PhoneBookEntryDataDisplay extends Component {
    * @param {string} searchTermFilter Test that is being searched
    */
   buildRowData(searchTermFilter) {
-    return this.props.phoneBookReducerData.map((item, i) => {
+    let result = this.props.phoneBookReducerData.map((item, i) => {
       // This the the filter check.
       // If the phoneNumber or the name matched then show the row,
       if (item.name === searchTermFilter || item.phoneNumber === searchTermFilter || searchTermFilter === '') {
@@ -18,14 +18,17 @@ class PhoneBookEntryDataDisplay extends Component {
             <td>{item.phoneNumber}</td>
           </tr>);
       }
-      return '';
+      return null;
     });
+
+    return result;
   }
+
+  
 
   render() {
     return (
       <div className="PhoneBookEntryDataDisplay card card-body bg-light">
-        <h1>{this.props.phoneBookReducerSearchTerm} : search term</h1>
         <table className="table">
           <thead>
             <tr>
