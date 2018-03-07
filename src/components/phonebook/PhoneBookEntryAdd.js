@@ -35,7 +35,7 @@ class PhoneBookEntryAdd extends Component {
     this.props.actionPhoneBookEntryAdd(this.state.name, this.state.phoneNumber);
     this.setState({
       name: '',
-      phoneNumber: ''
+      phoneNumber: '',
     });
   }
 
@@ -45,8 +45,17 @@ class PhoneBookEntryAdd extends Component {
         <h3>Add a new entry to the Phone Book</h3>
         <div className="row">
           <div className="col">
-            <input maxLength="10" value={this.state.name} onChange={this.onChangeInputName} placeholder="name" type="text" style={{ width: '100%' }} />
-            <input className="h_noSpinnerOnInput" maxLength="10" value={this.state.phoneNumber} onChange={this.onChangeInputPhoneNumber} placeholder="phoneNumber" type="number" pattern="^[0-9]" min="0" style={{ width: '100%' }} />
+            <input maxLength="10"
+              value={this.state.name}
+              onChange={this.onChangeInputName}
+              placeholder="name" type="text" style={{ width: '100%' }} />
+            <input maxLength="10"
+              className="h_noSpinnerOnInput"
+              value={this.state.phoneNumber}
+              onChange={this.onChangeInputPhoneNumber}
+              placeholder="phoneNumber"
+              type="number"
+              pattern="^[0-9]" min="0" style={{ width: '100%' }} />
           </div>
           <div className="col">
             <button
