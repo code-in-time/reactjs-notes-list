@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from '../../shared/Navigation';
+import DrawerButton from './DrawerButton';
 
 
 /**
@@ -12,7 +13,7 @@ class PageMaterialui extends Component {
     return (
       <div className="PageHome">
         <Navigation />
-        test
+        <DrawerButton />
       </div>
     );
   }

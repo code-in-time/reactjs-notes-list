@@ -6,6 +6,8 @@ import { Provider, connect } from 'react-redux';
 import { createStore } from 'redux';
 import { PropTypes } from 'prop-types';
 
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 // Componenets
 import PageHome from './components/pages/home/PageHome';
 import PageMovies from './components/pages/movies/PageMovies';
@@ -16,6 +18,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 import rootReducer from './Reducers/index';
 import { actionNoteGetLatest } from './actions/noteActions';
+
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
@@ -43,14 +46,16 @@ class Index extends Component {
 
   render() {
     return (
-      <Router>
-        <Switch>
-          <Route exact path="/" component={PageHome} />
-          <Route path="/movies" component={PageMovies} />
-          <Route path="/phone" component={PagePhoneBook} />
-          <Route path="/material-ui" component={PageMaterialui} />
-        </Switch>
-      </Router>
+      <MuiThemeProvider>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={PageHome} />
+            <Route path="/movies" component={PageMovies} />
+            <Route path="/phone" component={PagePhoneBook} />
+            <Route path="/material-ui" component={PageMaterialui} />
+          </Switch>
+        </Router>
+      </MuiThemeProvider>
     );
   }
 }
