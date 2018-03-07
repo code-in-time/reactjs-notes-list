@@ -14,7 +14,10 @@ export default class Navigation extends Component {
           </li>
           <li className="nav-item">
             <NavLink {...this.props} to="/phone" className="nav-link">PHONE BOOK</NavLink>
-        </li>
+          </li>
+          <li className="nav-item">
+            <NavLink {...this.props} to="/material-ui" className="nav-link">MATERIAL-UI</NavLink>
+          </li>
         </ul>
       </nav>
     );

@@ -7,9 +7,10 @@ import { createStore } from 'redux';
 import { PropTypes } from 'prop-types';
 
 // Componenets
-import PageHome from './components/pages/PageHome';
-import PageMovies from './components/pages/PageMovies';
-import PagePhoneBook from './components/pages/PagePhoneBook';
+import PageHome from './components/pages/home/PageHome';
+import PageMovies from './components/pages/movies/PageMovies';
+import PagePhoneBook from './components/pages/phonebook/PagePhoneBook';
+import PageMaterialui from './components/pages/materialui/PageMaterialui';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -47,6 +48,7 @@ class Index extends Component {
           <Route exact path="/" component={PageHome} />
           <Route path="/movies" component={PageMovies} />
           <Route path="/phone" component={PagePhoneBook} />
+          <Route path="/material-ui" component={PageMaterialui} />
         </Switch>
       </Router>
     );

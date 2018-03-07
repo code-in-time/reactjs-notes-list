@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { actionNoteCreate, actionNoteClearAll, actionNoteGetLatest } from '../actions/noteActions';
+import { actionNoteCreate, actionNoteClearAll, actionNoteGetLatest } from '../../../actions/noteActions';
 
 class NoteControls extends Component {
   constructor(props) {

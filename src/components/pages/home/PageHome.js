@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import App from '../App';
-import Navigation from '../Navigation';
+import App from './App';
+import Navigation from '../../shared/Navigation';
 
 /**
  * This the the home Page

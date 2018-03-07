@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { actionPhoneBookSearch } from '../../actions/phoneBookActions';
+import { actionPhoneBookSearch } from '../../../actions/phoneBookActions';
 
 class PhoneBookSearch extends Component {
   render() {

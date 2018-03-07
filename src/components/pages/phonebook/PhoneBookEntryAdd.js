@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { actionPhoneBookEntryAdd } from '../../actions/phoneBookActions';
+import { actionPhoneBookEntryAdd } from '../../../actions/phoneBookActions';
 
 class PhoneBookEntryAdd extends Component {
   constructor(props) {
@@ -45,17 +45,25 @@ class PhoneBookEntryAdd extends Component {
         <h3>Add a new entry to the Phone Book</h3>
         <div className="row">
           <div className="col">
-            <input maxLength="10"
+            <input
+              maxLength="10"
               value={this.state.name}
               onChange={this.onChangeInputName}
-              placeholder="name" type="text" style={{ width: '100%' }} />
-            <input maxLength="10"
+              placeholder="name"
+              type="text"
+              style={{ width: '100%' }}
+            />
+            <input
+              maxLength="10"
               className="h_noSpinnerOnInput"
               value={this.state.phoneNumber}
               onChange={this.onChangeInputPhoneNumber}
               placeholder="phoneNumber"
               type="number"
-              pattern="^[0-9]" min="0" style={{ width: '100%' }} />
+              pattern="^[0-9]"
+              min="0"
+              style={{ width: '100%' }}
+            />
           </div>
           <div className="col">
             <button

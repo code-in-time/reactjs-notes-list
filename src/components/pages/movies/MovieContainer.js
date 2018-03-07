@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
-import { apiMovieSearch } from '../API/index';
+import { apiMovieSearch } from '../../../API/index';
 
 class MovieContainer extends Component {
   componentDidMount() {
