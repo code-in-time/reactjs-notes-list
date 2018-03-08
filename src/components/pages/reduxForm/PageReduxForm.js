@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navigation from '../../shared/Navigation';
+import EmailForm from './EmailForm';
 
 /**
  * This is the other Page
@@ -14,7 +15,7 @@ class PageReduxForm extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col">
-              reduxForm
+              <EmailForm />
             </div>
           </div>
         </div>

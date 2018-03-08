@@ -11,16 +11,21 @@ module.exports = {
         "jsx-a11y/anchor-is-valid": "off",
         "no-case-declarations": "off",
         "no-param-reassign": "off",
-        "react/no-array-index-key": "off"
+        "react/no-array-index-key": "off",
+        "jsx-a11y/label-has-for": [ 2, {
+          "components": [ "Label" ],
+          "required": {
+              "some": [ "nesting", "id" ]
+          },
+          "allowChildren": false,
+        }]
       },
-      "globals": {
-        "document": false,
-        "window": false,
-        // These are for testing
-        "expect": false,
-        "it": false,
-        "jest": false,
-        //
-
-      }
+    "globals": {
+      "document": false,
+      "window": false,
+      // These are for testing
+      "expect": false,
+      "it": false,
+      "jest": false,
+  }
 };
