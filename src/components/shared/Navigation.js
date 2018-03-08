@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { NavLink } from 'react-router-dom';
+import NavButtonLink from './NavButtonLink';
 
 export default class Navigation extends Component {
   render() {
@@ -7,16 +7,16 @@ export default class Navigation extends Component {
       <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
         <ul className="nav nav-pills">
           <li className="nav-item">
-            <NavLink exact to="/" className="nav-link">HOME</NavLink>
+            <NavButtonLink {...this.props} tourl="/" linktext="HOME" />
           </li>
           <li className="nav-item">
-            <NavLink {...this.props} to="/movies" className="nav-link">MOVIES</NavLink>
+            <NavButtonLink {...this.props} tourl="/movies" linktext="MOVIES" />
           </li>
           <li className="nav-item">
-            <NavLink {...this.props} to="/phone" className="nav-link">PHONE BOOK</NavLink>
+            <NavButtonLink {...this.props} tourl="/phone" linktext="PHONE BOOK" />
           </li>
           <li className="nav-item">
-            <NavLink {...this.props} to="/material-ui" className="nav-link">MATERIAL-UI</NavLink>
+            <NavButtonLink {...this.props} tourl="/material-ui" linktext="MATERIAL-UI" />
           </li>
         </ul>
       </nav>

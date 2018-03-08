@@ -3,7 +3,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
-import { NavLink } from 'react-router-dom';
+import NavButtonLink from '../../shared/NavButtonLink';
 
 const style = {
   height: '80vh',
@@ -36,8 +36,20 @@ class DrawerButton extends Component {
           open={this.state.open}
           onRequestChange={open => this.setState({ open })}
         >
-          <MenuItem onClick={this.handleClose}><NavLink exact to="/" className="nav-link">HOME</NavLink></MenuItem>
           <MenuItem onClick={this.handleClose}>close</MenuItem>
+
+          <MenuItem onClick={this.handleClose} {...this.props}>
+            <NavButtonLink {...this.props} tourl="/" linktext="HOME" />
+          </MenuItem>
+          <MenuItem onClick={this.handleClose}>
+            <NavButtonLink {...this.props} tourl="/movies" linktext="MOVIES" />
+          </MenuItem>
+          <MenuItem onClick={this.handleClose}>
+            <NavButtonLink {...this.props} tourl="/phone" linktext="PHONE BOOK" />
+          </MenuItem>
+          <MenuItem onClick={this.handleClose}>
+            <NavButtonLink {...this.props} tourl="/material-ui" linktext="MATERIAL-UI" />
+          </MenuItem>
         </Drawer>
       </div>
     );
