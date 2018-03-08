@@ -50,6 +50,9 @@ class DrawerButton extends Component {
           <MenuItem onClick={this.handleClose}>
             <NavButtonLink {...this.props} tourl="/material-ui" linktext="MATERIAL-UI" />
           </MenuItem>
+          <MenuItem onClick={this.handleClose}>
+            <NavButtonLink {...this.props} tourl="/reduxform" linktext="REDUX-FORM" />
+          </MenuItem>
         </Drawer>
       </div>
     );

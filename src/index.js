@@ -55,7 +55,7 @@ class Index extends Component {
             <Route path="/movies" component={PageMovies} />
             <Route path="/phone" component={PagePhoneBook} />
             <Route path="/material-ui" component={PageMaterialui} />
-            <Route path="/reduxForm" component={PageReduxForm} />
+            <Route path="/reduxform" component={PageReduxForm} />
           </Switch>
         </Router>
       </MuiThemeProvider>

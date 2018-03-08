@@ -20,3 +20,10 @@ I am learning how to use react and redux and styling with sass
 - Only overdie the variables that must be custom.
 - .env.local will not be saved in version control.
 - Server must be stoped and restarted.
+
+#### References to documentation
+
+- <https://redux-form.com/7.3.0/docs/gettingstarted.md/>
+- <http://www.material-ui.com/>
+- <https://reactjs.org/>
+- <https://redux.js.org/>
