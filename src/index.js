@@ -13,6 +13,7 @@ import PageHome from './components/pages/home/PageHome';
 import PageMovies from './components/pages/movies/PageMovies';
 import PagePhoneBook from './components/pages/phonebook/PagePhoneBook';
 import PageMaterialui from './components/pages/materialui/PageMaterialui';
+import PageReduxForm from './components/pages/reduxForm/PageReduxForm';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -23,6 +24,7 @@ import { actionNoteGetLatest } from './actions/noteActions';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import './styles/index.css';
+
 
 // TODO: Turn redux devtools off for production using process.env.REACT_APP_ENV
 // const store = createStore(combineReducers({ noteReducer }), {}, applyMiddleware(createLogger()));
@@ -53,6 +55,7 @@ class Index extends Component {
             <Route path="/movies" component={PageMovies} />
             <Route path="/phone" component={PagePhoneBook} />
             <Route path="/material-ui" component={PageMaterialui} />
+            <Route path="/reduxForm" component={PageReduxForm} />
           </Switch>
         </Router>
       </MuiThemeProvider>

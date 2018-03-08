@@ -18,6 +18,9 @@ export default class Navigation extends Component {
           <li className="nav-item">
             <NavButtonLink {...this.props} tourl="/material-ui" linktext="MATERIAL-UI" />
           </li>
+          <li className="nav-item">
+            <NavButtonLink {...this.props} tourl="/reduxform" linktext="REDUX-FORM" />
+          </li>
         </ul>
       </nav>
     );
