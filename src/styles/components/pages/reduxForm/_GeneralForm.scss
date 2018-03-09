@@ -7,6 +7,10 @@
 
 
 .GeneralInput {
-    background: red;
+    background-color: $colorCornSilk;
     margin: 10px 0;
+}
+
+.GeneralInput-active {
+    background-color: $colorYellow;
 }

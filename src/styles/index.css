@@ -244,5 +244,8 @@ div.ListItem_right {
   border: 1px solid orange; }
 
 .GeneralInput {
-  background: red;
+  background-color: #FFF8DC;
   margin: 10px 0; }
+
+.GeneralInput-active {
+  background-color: yellow; }

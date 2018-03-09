@@ -8,9 +8,9 @@ import { PropTypes } from 'prop-types';
  * @param {redux-form object} field
  */
 const GeneralInput = field => (
-  <div className="GeneralInput row">
+  <div className={`GeneralInput row ${field.meta.active ? 'GeneralInput-active' : ''}`}>
     <div className="col-md-2" >
-      <label htmlFor={field.input.name}>{field.input.name}s</label>
+      <label htmlFor={field.input.name}>{field.txtLabel}</label>
     </div>
     <div className="col-md-4">
       <input {...field.input} type="text" name={field.input.name} />
@@ -18,10 +18,6 @@ const GeneralInput = field => (
     <div className="col-md-6">
       <span>ERROR REQUIRED</span>
     </div>
-
-
-    
-    
   </div>
 );
 
@@ -30,21 +26,22 @@ const GeneralForm = (props) => {
   const submit = (v, dispatch) => {
     console.log(v, props);
 
+    // TODO: make a custom action that we save this form to a reducerLw
     // return dispatch(actionTest(v));
   };
   // const { handleSubmit } = props;
   return (
-    <div className="GenearlForm h_max-w-700px container-fluid">
+    <div className="GeneralForm h_max-w-700px container-fluid">
       <form onSubmit={props.handleSubmit(submit)}>
         {console.log(props)}
         <div>
           <Field
             component={GeneralInput}
-            namex="Thisismyname"
+            txtLabel="First Name"
             name="FirstName"
             type="text"
           />
-          <button disabled={!props.valid} type="submit">
+          <button disabled={!props.valid} type="submit" className="btn btn-primary">
             Submit
           </button>
         </div>
@@ -56,7 +53,7 @@ const GeneralForm = (props) => {
 export default reduxForm({
   // a unique name for the form
   form: 'contact',
-  //validate,
+  // validate,
   // fields: ['firstName', 'lastName', 'email'],
 })(GeneralForm);
 
