@@ -1,7 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { PropTypes } from 'prop-types';
-// import PhoneBookEntryDataDisplay from '../phonebook/PhoneBookDataDisplay';
 
 // This is a test action
 export const actionTest = formData => ({

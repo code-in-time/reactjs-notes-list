@@ -161,6 +161,21 @@ body {
 .h_margin-l-40 {
   margin-left: 40px; }
 
+.h_max-w-100px {
+  max-width: 100px; }
+
+.h_max-w-120px {
+  max-width: 120px; }
+
+.h_max-w-150px {
+  max-width: 150px; }
+
+.h_max-w-200px {
+  max-width: 200px; }
+
+.h_max-w-700px {
+  max-width: 700px; }
+
 /* This will hide the spinner on thbe input. */
 input.h_noSpinnerOnInput::-webkit-outer-spin-button,
 input.h_noSpinnerOnInput::-webkit-inner-spin-button {
@@ -222,3 +237,12 @@ div.ListItem_right {
   justify-content: center;
   align-items: center;
   max-width: 80px; }
+
+.GeneralForm {
+  background-color: #999;
+  padding: 20px;
+  border: 1px solid orange; }
+
+.GeneralInput {
+  background: red;
+  margin: 10px 0; }
