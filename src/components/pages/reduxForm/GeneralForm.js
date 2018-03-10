@@ -21,6 +21,25 @@ const GeneralInput = field => (
   </div>
 );
 
+const GeneralSelect = field => (
+  <div className={`GeneralSelect row ${field.meta.active ? 'GeneralSelect-active' : ''}`}>
+    <div className="col-md-2" >
+      <label htmlFor={field.input.name}>{field.txtLabel}</label>
+    </div>
+    <div className="col-md-4">
+      <select {...field.input} name={field.input.name}>
+        <option value="">select</option>
+        <option value="car">car</option>
+        <option value="plane">plane</option>
+        <option value="bus">bus</option>
+      </select>
+    </div>
+    <div className="col-md-6">
+      {field.meta.touched && field.meta.error && <span className="GeneralSelect_error">{field.meta.error}</span>}
+    </div>
+  </div>
+);
+
 // Validation rules.
 // https://redux-form.com/6.6.2/examples/fieldlevelvalidation/
 const vRequired = value => (value ? undefined : 'This is required');
@@ -61,6 +80,14 @@ const GeneralForm = (props) => {
             type="text"
             validate={[vRequired]}
           />
+          <Field
+            component={GeneralSelect}
+            txtLabel="Transport"
+            name="Transport"
+            type="select"
+            validate={[vRequired]}
+          />
+
           {/* <button disabled={!props.valid} type="submit" className="btn btn-primary"> */}
           <button type="submit" className="btn btn-primary">
             Submit
