@@ -1,6 +1,6 @@
 # reactjs-notes-list
 
-I am learning how to use react and redux and styling with sass
+I am learning how to use react, redux, redux-form, material-iu  and styling react with sass
 
 ## How start the App
 
