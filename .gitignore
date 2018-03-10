@@ -21,7 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # CSS files are not kept as they are auto generated.
-.css
+*.css
 
 # The local environment variables
 .env.local
