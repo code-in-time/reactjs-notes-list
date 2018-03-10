@@ -21,6 +21,12 @@ const GeneralInput = field => (
   </div>
 );
 
+// Validation rules.
+// https://redux-form.com/6.6.2/examples/fieldlevelvalidation/
+const vRequired = value => (value ? undefined : 'This is required');
+const vEmail = value => (new RegExp('.+@.+', 'i').test(value) ? undefined : 'Email is not valid');
+
+
 const GeneralForm = (props) => {
   const submit = (v, dispatch) => {
     console.log(v, props);
@@ -39,12 +45,21 @@ const GeneralForm = (props) => {
             txtLabel="First Name"
             name="firstName"
             type="text"
+            validate={[vRequired]}
           />
           <Field
             component={GeneralInput}
             txtLabel="Email"
             name="emailAddr"
             type="text"
+            validate={[vRequired, vEmail]}
+          />
+          <Field
+            component={GeneralInput}
+            txtLabel="Address"
+            name="Address"
+            type="text"
+            validate={[vRequired]}
           />
           {/* <button disabled={!props.valid} type="submit" className="btn btn-primary"> */}
           <button type="submit" className="btn btn-primary">
@@ -62,24 +77,6 @@ const GeneralForm = (props) => {
 export default reduxForm({
   // a unique name for the form
   form: 'contact',
-  validate: (values) => {
-    const err = {};
-    // Check for a valid firstName
-    if (!values.firstName) {
-      err.firstName = 'Required firstName';
-    }
-
-    // Check for a valid email
-    if (!values.emailAddr) {
-      err.emailAddr = 'Required email';
-    } else if (new RegExp('.+@.+', 'i').test(values.emailAddr)) {
-      err.emailAddr = 'Email is invalid';
-    }
-
-    console.log('emailAddr', new RegExp('.+@.+', 'i').test(values.emailAddr));
-    return err;
-  },
-  // fields: ['firstName', 'lastName', 'email'],
 })(GeneralForm);
 
 GeneralForm.propTypes = {
