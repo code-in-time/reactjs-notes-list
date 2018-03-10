@@ -249,3 +249,6 @@ div.ListItem_right {
 
 .GeneralInput-active {
   background-color: yellow; }
+
+.GeneralInput_error {
+  color: red; }

@@ -16,11 +16,10 @@ const GeneralInput = field => (
       <input {...field.input} type="text" name={field.input.name} />
     </div>
     <div className="col-md-6">
-      <span>ERROR REQUIRED</span>
+      {field.meta.touched && field.meta.error && <span className="GeneralInput_error">{field.meta.error}</span>}
     </div>
   </div>
 );
-
 
 const GeneralForm = (props) => {
   const submit = (v, dispatch) => {
@@ -38,10 +37,17 @@ const GeneralForm = (props) => {
           <Field
             component={GeneralInput}
             txtLabel="First Name"
-            name="FirstName"
+            name="firstName"
             type="text"
           />
-          <button disabled={!props.valid} type="submit" className="btn btn-primary">
+          <Field
+            component={GeneralInput}
+            txtLabel="Email"
+            name="emailAddr"
+            type="text"
+          />
+          {/* <button disabled={!props.valid} type="submit" className="btn btn-primary"> */}
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </div>
@@ -50,16 +56,35 @@ const GeneralForm = (props) => {
   );
 };
 
+/**
+ * R
+ */
 export default reduxForm({
   // a unique name for the form
   form: 'contact',
-  // validate,
+  validate: (values) => {
+    const err = {};
+    // Check for a valid firstName
+    if (!values.firstName) {
+      err.firstName = 'Required firstName';
+    }
+
+    // Check for a valid email
+    if (!values.emailAddr) {
+      err.emailAddr = 'Required email';
+    } else if (new RegExp('.+@.+', 'i').test(values.emailAddr)) {
+      err.emailAddr = 'Email is invalid';
+    }
+
+    console.log('emailAddr', new RegExp('.+@.+', 'i').test(values.emailAddr));
+    return err;
+  },
   // fields: ['firstName', 'lastName', 'email'],
 })(GeneralForm);
 
 GeneralForm.propTypes = {
   handleSubmit: PropTypes.func.isRequired,
-  valid: PropTypes.bool.isRequired,
+  // valid: PropTypes.bool.isRequired,
   // name: PropTypes.string.isRequired,
   // submitting: PropTypes.bool.isRequired,
 };
