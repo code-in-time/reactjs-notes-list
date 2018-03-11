@@ -6,15 +6,15 @@
 
 
 
-.GeneralInput, .GeneralSelect {
+.GeneralInput, .GeneralSelect, .GeneralRadio {
     background-color: $colorCornSilk;
     margin: 10px 0;
 }
 
-.GeneralInput-active, .GeneralSelect-active {
+.GeneralInput-active, .GeneralSelect-active, .GeneralRadio-active {
     background-color: $colorYellow;
 }
 
-.GeneralInput_error, .GeneralSelect_error {
+.GeneralInput_error, .GeneralSelect_error, .GeneralRadio_error {
     color: $colorRed;
 }

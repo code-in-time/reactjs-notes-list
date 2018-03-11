@@ -21,6 +21,10 @@ const GeneralInput = field => (
   </div>
 );
 
+/**
+ * This is custom select row
+ * @param {redux-form object} field
+ */
 const GeneralSelect = field => (
   <div className={`GeneralSelect row ${field.meta.active ? 'GeneralSelect-active' : ''}`}>
     <div className="col-md-2" >
@@ -39,6 +43,7 @@ const GeneralSelect = field => (
     </div>
   </div>
 );
+
 
 // Validation rules.
 // https://redux-form.com/6.6.2/examples/fieldlevelvalidation/
@@ -88,6 +93,17 @@ const GeneralForm = (props) => {
             validate={[vRequired]}
           />
 
+          <div className="GeneralRadio row">
+            <div className="col-md-2" >
+              <label htmlFor="food">Food</label>
+            </div>
+            <div className="col-md-10">
+              <label><Field name="food" component="input" type="radio" value="none" />none</label><br />
+              <label><Field name="food" component="input" type="radio" value="burger" />Burger</label><br />
+              <label><Field name="food" component="input" type="radio" value="pizza" />Pizza</label>
+            </div>
+          </div>
+          {console.log('-----------------', props)}
           {/* <button disabled={!props.valid} type="submit" className="btn btn-primary"> */}
           <button type="submit" className="btn btn-primary">
             Submit
@@ -104,6 +120,9 @@ const GeneralForm = (props) => {
 export default reduxForm({
   // a unique name for the form
   form: 'contact',
+  initialValues: {
+    food: 'none',
+  }
 })(GeneralForm);
 
 GeneralForm.propTypes = {
