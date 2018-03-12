@@ -14,6 +14,7 @@ import PageMovies from './components/pages/movies/PageMovies';
 import PagePhoneBook from './components/pages/phonebook/PagePhoneBook';
 import PageMaterialui from './components/pages/materialui/PageMaterialui';
 import PageReduxForm from './components/pages/reduxForm/PageReduxForm';
+import PageReduxThunk from './components/pages/reduxThunk/pageReduxThunk';
 
 import registerServiceWorker from './registerServiceWorker';
 
@@ -56,6 +57,7 @@ class Index extends Component {
             <Route path="/phone" component={PagePhoneBook} />
             <Route path="/material-ui" component={PageMaterialui} />
             <Route path="/reduxform" component={PageReduxForm} />
+            <Route path="/reduxthunk" component={PageReduxThunk} />
           </Switch>
         </Router>
       </MuiThemeProvider>
