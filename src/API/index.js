@@ -18,6 +18,7 @@ import axios from 'axios';
   */
 export const apiMovieSearch = text => axios.get(`${process.env.REACT_APP_OMDBAPI_URL}&t=${text}`);
 
-// TODO The next APi call must go here.
-export const apiMovieSearch2 = text => axios.get(`${process.env.REACT_APP_OMDBAPI_URL}&t=${text}`);
-
+/**
+ * This a mock API call
+ */
+export const apiMock = () => axios.get(process.env.REACT_APP_MOCKAPI_URL);
