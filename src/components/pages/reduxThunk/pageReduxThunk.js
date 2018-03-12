@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import Navigation from '../../shared/Navigation';
+import ListView from './ListView';
+
+/**
+ * Following this tutorial
+ * https://codepen.io/stowball/post/a-dummy-s-guide-to-redux-and-thunk-in-react
+ */
 
 /**
  * This is the redux-thunk Page
@@ -14,7 +20,7 @@ class PageReduxThunk extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col">
-                test
+              <ListView />
             </div>
           </div>
         </div>
