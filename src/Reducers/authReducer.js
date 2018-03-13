@@ -9,8 +9,8 @@ const defaultState = {
     error: {
       isError: false,
       isErrorMessage: '',
-    } 
-  }
+    },
+  },
 };
 
 const authReducer = (state = defaultState, action) => {
@@ -24,24 +24,19 @@ const authReducer = (state = defaultState, action) => {
       state = deepClone(state);
       state.error.isError = action.payload.isError;
       state.error.isErrorMessage = action.payload.isErrorMessage;
-      break;      
-      
+      break;
+
     case actionTypes.AUTH_LOGIN_SUCCESS_WITH_DATA:
       state = deepClone(state);
-      state.login.loggedIn = action.payload.loggedIn;
-      state.login.profile = action.payload.profile;
+      state.login.loggedIn = action.payload.login.loggedIn;
+      state.login.profile = action.payload.login.profile;
       break;
-      
+
     default:
-      console.log('No actions match');
+      // console.log('No actions match');
   }
-}
-    
-  console.log('itemsReducer', [state, action]);
+
   return state;
 };
 
 export default authReducer;
-
-
-

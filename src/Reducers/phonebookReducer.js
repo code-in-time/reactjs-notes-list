@@ -38,7 +38,7 @@ const phoneBookReducer = (state = initialPhoneBookData, action) => {
       break;
 
     default:
-      console.log('No actions match');
+      // console.log('No actions match');
   }
 
   return state;

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import NavButtonLink from './NavButtonLink';
+import { authLoginMechanism } from '../../actions/authActions';
+import { PropTypes } from 'prop-types';
 
-export default class Navigation extends Component {
+class Navigation extends Component {
   render() {
     return (
       <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
@@ -23,9 +26,23 @@ export default class Navigation extends Component {
           </li>
           <li className="nav-item">
             <NavButtonLink {...this.props} tourl="/reduxthunk" linktext="REDUX-THUNK" />
-          </li>          
+          </li>
+          <li className="nav-item">
+            <button type="button" className="btn btn-small btn-primaer" onClick={() => this.props.authLoginMechanism()}>LOGIN</button>
+          </li>
         </ul>
       </nav>
     );
   }
 }
+
+Navigation.propTypes = {
+  authLoginMechanism: PropTypes.func.isRequired,
+};
+
+// Using redux the phonebookReducer properties are now props
+const mapDispatchToProps = {
+  authLoginMechanism,
+};
+
+export default connect(null, mapDispatchToProps)(Navigation);

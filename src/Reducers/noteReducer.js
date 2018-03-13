@@ -80,7 +80,7 @@ const noteReducer = (state = [], action) => {
       break;
 
     default:
-      console.log('No actions match');
+      // console.log('No actions match');
   }
 
   return state;

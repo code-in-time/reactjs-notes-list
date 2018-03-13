@@ -28,9 +28,8 @@ const itemsReducer = (state = defaultState, action) => {
       break;
 
     default:
-      console.log('No actions match');
+      // console.log('No actions match');
   }
-  console.log('itemsReducer', [state, action]);
   return state;
 };
 

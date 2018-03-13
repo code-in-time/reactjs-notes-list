@@ -22,3 +22,15 @@ export const apiMovieSearch = text => axios.get(`${process.env.REACT_APP_OMDBAPI
  * This a mock API call
  */
 export const apiMock = () => axios.get(process.env.REACT_APP_MOCKAPI_URL);
+
+/**
+ * This a login API call
+ * There is no API call for this so it will be mocked
+ */
+export const apiLogin = () => Promise.resolve({
+  data: {
+    name: 'User1',
+    email: '1@2.com',
+    mobile: '00000000',
+  },
+});
