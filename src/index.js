@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // Redux
 import { Provider, connect } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import thunk from 'redux-thunk';
 import { PropTypes } from 'prop-types';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -31,9 +32,17 @@ import './styles/index.css';
 // const store = createStore(combineReducers({ noteReducer }), {}, applyMiddleware(createLogger()));
 /* eslint-disable no-underscore-dangle */
 const store = createStore(
+  // Reducer
   rootReducer,
+  // Preloaded state
   {},
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  // Enhancer
+  compose(
+    // Middleware
+    applyMiddleware(thunk),
+    // Redux browser debugger
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
+  ),
 );
 
 /* eslint-enable */

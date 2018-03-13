@@ -1,52 +1,49 @@
 import React, { Component } from 'react';
-// import axios from 'axios';
-import { apiMock } from '../../../API/index';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { itemsIsLoading, itemsFetchData } from '../../../actions/itemsActions';
 
 class ItemList extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      items: [],
-      hasErrored: false,
-      isLoading: false,
-    };
-  }
-
   componentDidMount() {
-    apiMock()
-      .then((res) => {
-        this.setState({ isLoading: true });
-        return res.data;
-      })
-      .then((data) => {
-        console.log('dddddd', data);
-        this.setState({ items: [...data] });
-      })
-      .catch(() => {
-        this.setState({ hasErrored: true });
-      })
-      .finally(() => {
-        this.setState({ isLoading: false });
-      });
+    // this.props.itemsIsLoading(true);
+    console.log('before-------------');
+    this.props.itemsFetchData();
+    console.log('aftrer--------------');
   }
 
   render() {
-    if (this.state.hasErrored) {
+    if (this.props.hasErrored) {
       return <p>Sorry! There was an error loading the items</p>;
     }
 
-    if (this.state.isLoading) {
+    if (this.props.isLoading) {
       return <p>Loading…</p>;
     }
 
     return (
       <ul>
-            test
-        {this.state.items.map(item => <li key={item.id}>{item.label}</li>)}
+        {this.props.items.map(item => <li key={item.id}>{item.label}</li>)}
       </ul>
     );
   }
 }
 
-export default ItemList;
+ItemList.propTypes = {
+  hasErrored: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  itemsFetchData: PropTypes.func.isRequired,
+  items: PropTypes.array.isRequired,
+};
+
+const mapStateToProps = state => ({
+  hasErrored: state.itemsReducer.hasErrored,
+  isLoading: state.itemsReducer.isLoading,
+  items: state.itemsReducer.items,
+});
+
+const mapDispatchToProps = {
+  itemsIsLoading,
+  itemsFetchData,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ItemList);
