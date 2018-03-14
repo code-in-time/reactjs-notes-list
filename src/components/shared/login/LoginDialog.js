@@ -4,9 +4,22 @@ import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import { PropTypes } from 'prop-types';
-import { authLoginDialogOpen } from '../../../actions/authActions';
+import { authLoginDialogOpen, authLoginMechanism } from '../../../actions/authActions';
 
 class LoginDialog extends Component {
+  constructor() {
+    super();
+    this.btnClickLogin = this.btnClickLogin.bind(this);
+  }
+
+  /**
+   * The click handler for clicking on the login button
+   */
+  btnClickLogin() {
+    // Call the login API.
+    this.props.authLoginMechanism();
+  }
+
   render() {
     return (
       <div>
@@ -29,7 +42,16 @@ class LoginDialog extends Component {
             type="password"
             fullWidth
           /><br />
-          <RaisedButton label="LOGIN" primary fullWidth className="h_margin-t-20px" />
+          <RaisedButton
+            label="LOGIN"
+            primary
+            disabled={this.props.loginIsLoading}
+            fullWidth
+            className="h_margin-t-20px"
+            onClick={this.btnClickLogin}
+          >
+            {this.props.loginIsLoading && (<i className="fa fa-spinner fa-spin" />)}
+          </RaisedButton>
         </Dialog>
       </div>
     );
@@ -38,15 +60,19 @@ class LoginDialog extends Component {
 
 LoginDialog.propTypes = {
   loginDialogOpen: PropTypes.bool.isRequired,
+  loginIsLoading: PropTypes.bool.isRequired,
   authLoginDialogOpen: PropTypes.func.isRequired,
+  authLoginMechanism: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
   loginDialogOpen: state.authReducer.login.dialogOpen,
+  loginIsLoading: state.authReducer.login.isLoading,
 });
 
 const mapDispatchToProps = {
   authLoginDialogOpen,
+  authLoginMechanism,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginDialog);

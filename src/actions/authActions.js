@@ -80,6 +80,7 @@ export function authLoginMechanism() {
       })
       .finally(() => {
         dispatch(authLoginIsLoading(false));
+        dispatch(authLoginDialogOpen(false));
         console.log('finally');
       });
   };
