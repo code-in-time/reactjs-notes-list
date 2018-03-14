@@ -10,12 +10,24 @@ class Navigation extends Component {
       <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
         <ul className="nav nav-pills">
           <li className="nav-item">
+
+            {!this.props.loginIsLoggedIn &&
+              <button
+                type="button"
+                className="btn btn-small h_margin-r-20px"
+                onClick={() => this.props.authLoginDialogOpen(true)}
+              ><span>LOGIN <i className="fa fa-unlock" /></span>
+              </button>
+            }
+            {this.props.loginIsLoggedIn &&
             <button
               type="button"
               className="btn btn-small h_margin-r-20px"
-              onClick={() => this.props.authLoginDialogOpen(true)}
-            >LOGIN <i className="fa fa-lock" />
+              onClick={() => console.log('logout')}
+            ><span>logout <i className="fa fa-lock" /></span>
             </button>
+            }
+
           </li>
           <li className="nav-item">
             <NavButtonLink {...this.props} tourl="/" linktext="HOME" />
@@ -43,18 +55,19 @@ class Navigation extends Component {
 
 Navigation.propTypes = {
   authLoginDialogOpen: PropTypes.func.isRequired,
+  loginIsLoggedIn: PropTypes.bool.isRequired,
 };
 
-// const mapStateToProps = state => ({
-//   loginIsLoading: state.authReducer.login.isLoading,
-// });
+const mapStateToProps = state => ({
+  loginIsLoggedIn: state.authReducer.login.loggedIn,
+});
 
 // Using redux the phonebookReducer properties are now props
 const mapDispatchToProps = {
   authLoginDialogOpen,
 };
 
-export default connect(null, mapDispatchToProps)(Navigation);
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
 
 
 // <button

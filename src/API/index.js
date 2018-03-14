@@ -45,3 +45,21 @@ export const apiLogin = () => {
     window.setTimeout(() => resolve(data), 3000);
   });
 };
+
+/**
+ * This a logout API call
+ * There is no API call for this so it will be mocked
+ * This will need to use AXIOS todo the API call
+ * @returns promise
+ * TODO: ADD AXIOS and endpoint for api call
+ */
+export const apiLogout = () => {
+  // The mock data to be returned
+  const data = {
+    data: {},
+  };
+
+  return new Promise((resolve) => {
+    window.setTimeout(() => resolve(data), 3000);
+  });
+};
