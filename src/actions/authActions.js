@@ -46,12 +46,15 @@ export function authLoginSuccessWithData(profile) {
  * This will dispatch other actions
  */
 export function authLoginMechanism() {
-  return (dispatch, getState) => {
-    console.log('getstate', getState());
+  // NOTE getState is an options param
+  // return (dispatch, getState) => {
+  return (dispatch) => {
+    // The API must show that is is loading
+    dispatch(authLoginIsLoading(true));
     // Add API CALL
     apiLogin()
       .then((res) => {
-        dispatch(authLoginIsLoading(true));
+        console.log('data is returned');
         return res.data;
       })
       .then((data) => {

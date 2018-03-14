@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navigation from '../../shared/Navigation';
+import Navigation from '../../shared/navigation/Navigation';
 import PhoneBookEntryAdd from '../phonebook/PhoneBookEntryAdd';
 import PhoneBookDataDisplay from '../phonebook/PhoneBookDataDisplay';
 import PhoneBookSearch from '../phonebook/PhoneBookSearch';

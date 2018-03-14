@@ -3,7 +3,7 @@ import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
 import Paper from 'material-ui/Paper';
-import NavButtonLink from '../../shared/NavButtonLink';
+import NavButtonLink from '../../shared/navigation/NavButtonLink';
 
 const style = {
   height: '80vh',

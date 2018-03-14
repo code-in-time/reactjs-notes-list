@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navigation from '../../shared/Navigation';
+import Navigation from '../../shared/navigation/Navigation';
 import MovieContainer from './MovieContainer';
 
 /**

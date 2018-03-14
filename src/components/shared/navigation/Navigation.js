@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import NavButtonLink from './NavButtonLink';
-import { authLoginMechanism } from '../../actions/authActions';
+import { authLoginMechanism } from '../../../actions/authActions';
 
 class Navigation extends Component {
   render() {
@@ -28,7 +28,13 @@ class Navigation extends Component {
             <NavButtonLink {...this.props} tourl="/reduxthunk" linktext="REDUX-THUNK" />
           </li>
           <li className="nav-item">
-            <button type="button" className="btn btn-small btn-primaer" onClick={() => this.props.authLoginMechanism()}>LOGIN</button>
+            <button
+              disabled={this.props.loginIsLoading}
+              type="button"
+              className="btn btn-small btn-primaer"
+              onClick={() => this.props.authLoginMechanism()}
+            >{this.props.loginIsLoading ? (<i className="fa fa-spinner fa-spin" />) : (<span>LOGIN</span>)}
+            </button>
           </li>
         </ul>
       </nav>
@@ -37,12 +43,17 @@ class Navigation extends Component {
 }
 
 Navigation.propTypes = {
+  loginIsLoading: PropTypes.bool.isRequired,
   authLoginMechanism: PropTypes.func.isRequired,
 };
+
+const mapStateToProps = state => ({
+  loginIsLoading: state.authReducer.login.isLoading,
+});
 
 // Using redux the phonebookReducer properties are now props
 const mapDispatchToProps = {
   authLoginMechanism,
 };
 
-export default connect(null, mapDispatchToProps)(Navigation);
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
