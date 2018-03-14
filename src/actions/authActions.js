@@ -42,9 +42,13 @@ export function authLoginSuccessWithData(profile) {
 
 /**
  * Set the Login dialog visibility
+  {
+    type: 'AUTH_LOGIN_DIALOG_OPEN',
+    payload: { dialogOpen: true },
+  };
  * @param {bool} dialogOpen
  */
-export function authLoginDialogOpen(isError, dialogOpen) {
+export function authLoginDialogOpen(dialogOpen) {
   return {
     type: actionTypes.AUTH_LOGIN_DIALOG_OPEN,
     payload: { dialogOpen },
