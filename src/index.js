@@ -17,6 +17,8 @@ import PageMaterialui from './components/pages/materialui/PageMaterialui';
 import PageReduxForm from './components/pages/reduxForm/PageReduxForm';
 import PageReduxThunk from './components/pages/reduxThunk/pageReduxThunk';
 
+import LoginDialogue from './components/shared/login/LoginDialog';
+
 import registerServiceWorker from './registerServiceWorker';
 
 import rootReducer from './Reducers/index';
@@ -69,6 +71,9 @@ class Index extends Component {
             <Route path="/reduxthunk" component={PageReduxThunk} />
           </Switch>
         </Router>
+
+        <LoginDialogue />
+
       </MuiThemeProvider>
     );
   }
