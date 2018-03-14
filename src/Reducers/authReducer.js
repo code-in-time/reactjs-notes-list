@@ -10,6 +10,7 @@ const defaultState = {
       isError: false,
       isErrorMessage: '',
     },
+    dialogOpen: false,
   },
 };
 
@@ -30,6 +31,11 @@ const authReducer = (state = defaultState, action) => {
       state = deepClone(state);
       state.login.loggedIn = action.payload.login.loggedIn;
       state.login.profile = action.payload.login.profile;
+      break;
+
+    case actionTypes.AUTH_LOGIN_DIALOG_OPEN:
+      state = deepClone(state);
+      state.login.dialogOpen = action.payload.dialogOpen;
       break;
 
     default:

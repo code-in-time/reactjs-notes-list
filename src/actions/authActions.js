@@ -41,6 +41,17 @@ export function authLoginSuccessWithData(profile) {
 }
 
 /**
+ * Set the Login dialog visibility
+ * @param {bool} dialogOpen
+ */
+export function authLoginDialogOpen(isError, dialogOpen) {
+  return {
+    type: actionTypes.AUTH_LOGIN_DIALOG_OPEN,
+    payload: { dialogOpen },
+  };
+}
+
+/**
  * This is so that the user can login
  * This is thunk action
  * This will dispatch other actions
