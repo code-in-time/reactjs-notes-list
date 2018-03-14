@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { PropTypes } from 'prop-types';
 import NavButtonLink from './NavButtonLink';
 import { authLoginMechanism } from '../../actions/authActions';
-import { PropTypes } from 'prop-types';
 
 class Navigation extends Component {
   render() {
