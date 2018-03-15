@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import { PropTypes } from 'prop-types';
-import { authLoginDialogOpen, authLoginMechanism } from '../../../actions/authActions';
+import { actionLoginDialogOpen, actionLoginAPIcall } from '../../../actions/loginActions';
 
 class LoginDialog extends Component {
   constructor() {
@@ -17,7 +17,7 @@ class LoginDialog extends Component {
    */
   btnClickLogin() {
     // Call the login API.
-    this.props.authLoginMechanism();
+    this.props.actionLoginAPIcall();
   }
 
   render() {
@@ -29,7 +29,7 @@ class LoginDialog extends Component {
           modal={false}
           open={this.props.loginDialogOpen}
           // Close the dialog
-          onRequestClose={() => this.props.authLoginDialogOpen(false)}
+          onRequestClose={() => this.props.actionLoginDialogOpen(false)}
         >
           <TextField
             hintText="Name"
@@ -45,12 +45,12 @@ class LoginDialog extends Component {
           <RaisedButton
             label="LOGIN"
             primary
-            disabled={this.props.loginIsLoading}
+            disabled={this.props.loginAPIisLoading}
             fullWidth
             className="h_margin-t-20px"
             onClick={this.btnClickLogin}
           >
-            {this.props.loginIsLoading && (<i className="fa fa-spinner fa-spin" />)}
+            {this.props.loginAPIisLoading && (<i className="fa fa-spinner fa-spin" />)}
           </RaisedButton>
         </Dialog>
       </div>
@@ -60,19 +60,19 @@ class LoginDialog extends Component {
 
 LoginDialog.propTypes = {
   loginDialogOpen: PropTypes.bool.isRequired,
-  loginIsLoading: PropTypes.bool.isRequired,
-  authLoginDialogOpen: PropTypes.func.isRequired,
-  authLoginMechanism: PropTypes.func.isRequired,
+  loginAPIisLoading: PropTypes.bool.isRequired,
+  actionLoginDialogOpen: PropTypes.func.isRequired,
+  actionLoginAPIcall: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({
-  loginDialogOpen: state.authReducer.login.dialogOpen,
-  loginIsLoading: state.authReducer.login.isLoading,
+  loginDialogOpen: state.loginReducer.loginDialogOpen,
+  loginAPIisLoading: state.loginReducer.loginAPIisLoading,
 });
 
 const mapDispatchToProps = {
-  authLoginDialogOpen,
-  authLoginMechanism,
+  actionLoginDialogOpen,
+  actionLoginAPIcall,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(LoginDialog);

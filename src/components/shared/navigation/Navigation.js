@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import NavButtonLink from './NavButtonLink';
-import { authLoginDialogOpen } from '../../../actions/authActions';
+import { actionLoginDialogOpen } from '../../../actions/loginActions';
 
 class Navigation extends Component {
   render() {
@@ -11,15 +11,15 @@ class Navigation extends Component {
         <ul className="nav nav-pills">
           <li className="nav-item">
 
-            {!this.props.loginIsLoggedIn &&
+            {this.props.authReducerProfileData === null &&
               <button
                 type="button"
                 className="btn btn-small h_margin-r-20px"
-                onClick={() => this.props.authLoginDialogOpen(true)}
+                onClick={() => this.props.actionLoginDialogOpen(true)}
               ><span>LOGIN <i className="fa fa-unlock" /></span>
               </button>
             }
-            {this.props.loginIsLoggedIn &&
+            {this.props.authReducerProfileData !== null &&
             <button
               type="button"
               className="btn btn-small h_margin-r-20px"
@@ -54,26 +54,16 @@ class Navigation extends Component {
 }
 
 Navigation.propTypes = {
-  authLoginDialogOpen: PropTypes.func.isRequired,
-  loginIsLoggedIn: PropTypes.bool.isRequired,
+  actionLoginDialogOpen: PropTypes.func.isRequired,
+  authReducerProfileData: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = state => ({
-  loginIsLoggedIn: state.authReducer.login.loggedIn,
+  authReducerProfileData: state.authReducer.profileData,
 });
 
-// Using redux the phonebookReducer properties are now props
 const mapDispatchToProps = {
-  authLoginDialogOpen,
+  actionLoginDialogOpen,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
-
-
-// <button
-// disabled={this.props.loginIsLoading}
-// type="button"
-// className="btn btn-small btn-primaer"
-// onClick={() => this.props.authLoginMechanism()}
-// >{this.props.loginIsLoading ? (<i className="fa fa-spinner fa-spin" />) : (<span>LOGIN</span>)}
-// </button>

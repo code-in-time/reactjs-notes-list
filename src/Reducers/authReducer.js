@@ -1,41 +1,19 @@
 import actionTypes from '../constants/actionTypes';
 import { deepClone } from '../utils/general';
 
+/**
+ * null - logged out
+ * object - logged in auth user
+ */
 const defaultState = {
-  login: {
-    profile: {},
-    loggedIn: false,
-    isLoading: false,
-    error: {
-      isError: false,
-      isErrorMessage: '',
-    },
-    dialogOpen: false,
-  },
+  profileData: null,
 };
 
 const authReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case actionTypes.AUTH_LOGIN_IS_LOADING:
+    case actionTypes.LOGIN_API_SUCCESS:
       state = deepClone(state);
-      state.login.isLoading = action.payload.isLoading;
-      break;
-
-    case actionTypes.AUTH_LOGIN_ERROR:
-      state = deepClone(state);
-      state.error.isError = action.payload.isError;
-      state.error.isErrorMessage = action.payload.isErrorMessage;
-      break;
-
-    case actionTypes.AUTH_LOGIN_SUCCESS_WITH_DATA:
-      state = deepClone(state);
-      state.login.loggedIn = action.payload.login.loggedIn;
-      state.login.profile = action.payload.login.profile;
-      break;
-
-    case actionTypes.AUTH_LOGIN_DIALOG_OPEN:
-      state = deepClone(state);
-      state.login.dialogOpen = action.payload.dialogOpen;
+      state.profileData = action.payload;
       break;
 
     default:

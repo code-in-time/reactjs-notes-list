@@ -4,6 +4,7 @@ import noteReducer from './noteReducer';
 import phoneBookReducer from './phonebookReducer';
 import itemsReducer from './itemsReducer';
 import authReducer from './authReducer';
+import loginReducer from './loginReducer';
 
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   phoneBookReducer,
   itemsReducer,
   authReducer,
+  loginReducer,
   // FROM redux-form (you have to pass formReducer under 'form' key)
   form: formReducer,
 });
