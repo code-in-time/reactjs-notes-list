@@ -1,4 +1,3 @@
-import actionTypes from '../constants/actionTypes';
 import initialPhoneBookData from '../data/initialPhoneBookData';
 import { deepClone } from '../utils/general';
 
@@ -8,15 +7,53 @@ import { deepClone } from '../utils/general';
  * ----------------------------------
  */
 
+// action types
+export const PHONEBOOK_GET_DATA = 'PHONEBOOK_GET_DATA';
+export const PHONEBOOK_ENTRY_ADD = 'PHONEBOOK_ENTRY_ADD';
+export const PHONEBOOK_SEARCH = 'PHONEBOOK_SEARCH';
 
+// Action creators
+/**
+ * This will get the lastes phonebook data
+ */
+export const actionPhoneBookGetData = () => ({
+  type: PHONEBOOK_GET_DATA,
+  // There is no payload
+});
+
+/**
+ * The action to add a new entry to the phone book
+ * @param {string} name Thhe users name
+ * @param {string} phoneNumber The phone number
+ */
+export const actionPhoneBookEntryAdd = (name, phoneNumber) => ({
+  type: PHONEBOOK_ENTRY_ADD,
+  payload: {
+    name,
+    phoneNumber,
+  },
+});
+
+/**
+ * This action to get the number or name to search in the phone book data
+ * @param {string} searchTerm The searm term this can be a number or a name
+ */
+export const actionPhoneBookSearch = searchTerm => ({
+  type: PHONEBOOK_SEARCH,
+  payload: {
+    searchTerm,
+  },
+});
+
+// Reducer
 const phoneBookReducer = (state = initialPhoneBookData, action) => {
   switch (action.type) {
-    // case actionTypes.PHONEBOOK_GET_DATA:
+    // case PHONEBOOK_GET_DATA:
     //   // Get the phonebook data
     //   state = deepCloneArray(initialPhoneBookData);
     //   break;
 
-    case actionTypes.PHONEBOOK_ENTRY_ADD:
+    case PHONEBOOK_ENTRY_ADD:
       // Clone the state.
       state = deepClone(state);
       // Add the New phone entry
@@ -29,7 +66,7 @@ const phoneBookReducer = (state = initialPhoneBookData, action) => {
 
       break;
 
-    case actionTypes.PHONEBOOK_SEARCH:
+    case PHONEBOOK_SEARCH:
       // Clone the state.
       state = deepClone(state);
       // Update the search term
@@ -43,6 +80,5 @@ const phoneBookReducer = (state = initialPhoneBookData, action) => {
 
   return state;
 };
-
 
 export default phoneBookReducer;

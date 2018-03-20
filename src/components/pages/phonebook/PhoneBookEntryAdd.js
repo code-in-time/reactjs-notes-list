@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
-import { actionPhoneBookEntryAdd } from '../../../actions/phoneBookActions';
+import { actionPhoneBookEntryAdd } from '../../../Reducers/phonebookReducer';
 
 class PhoneBookEntryAdd extends Component {
   constructor(props) {
