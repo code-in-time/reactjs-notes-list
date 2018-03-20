@@ -27,5 +27,6 @@ module.exports = {
       "expect": false,
       "it": false,
       "jest": false,
+      "describe": false,
   }
 };
