@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
 import NavButtonLink from './NavButtonLink';
-import { actionLoginDialogOpen } from '../../../actions/loginActions';
+import { actionLoginDialogOpen } from '../../../Reducers/loginReducer';
 
 class Navigation extends Component {
   render() {

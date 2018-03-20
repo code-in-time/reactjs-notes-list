@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import { PropTypes } from 'prop-types';
-import { actionLoginDialogOpen, actionLoginAPIcall } from '../../../actions/loginActions';
+import { actionLoginDialogOpen, actionLoginAPIcall } from '../../../Reducers/loginReducer';
 
 class LoginDialog extends Component {
   constructor() {
