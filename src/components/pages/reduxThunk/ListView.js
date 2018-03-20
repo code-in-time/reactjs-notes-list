@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { itemsIsLoading, itemsFetchData } from '../../../actions/itemsActions';
+import { itemsIsLoading, itemsFetchData } from '../../../Reducers/itemsReducer';
 
 class ItemList extends Component {
   componentDidMount() {
