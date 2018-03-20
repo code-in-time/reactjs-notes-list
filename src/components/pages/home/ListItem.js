@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import { actionNoteSelectedToggle } from '../../../actions/noteActions';
+import { actionNoteSelectedToggle } from '../../../Reducers/noteReducer';
 
 class ListItem extends Component {
   constructor() {

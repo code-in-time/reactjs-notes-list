@@ -22,7 +22,7 @@ import LoginDialogue from './components/shared/login/LoginDialog';
 import registerServiceWorker from './registerServiceWorker';
 
 import rootReducer from './Reducers/index';
-import { actionNoteGetLatest } from './actions/noteActions';
+import { actionNoteGetLatest } from './Reducers/noteReducer';
 
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';

@@ -1,18 +1,35 @@
-import actionTypes from '../constants/actionTypes';
 import initialNoteData from '../data/initialNoteData';
 import { deepClone } from '../utils/general';
 
-/**
- * ----------------------------------
- * The Note Reducer file.
- * ----------------------------------
- */
+// Actions
+export const NOTE_CREATE = 'NOTE_CREATE';
+export const NOTE_SELECTED_TOGGLE = 'NOTE_SELECTED_TOGGLE';
+export const NOTE_GET_LATEST = 'NOTE_GET_LATEST';
+export const NOTE_CLEAR_ALL = 'NOTE_CLEAR_ALL';
+
+// Action creators
+export const actionNoteCreate = text => ({
+  type: NOTE_CREATE,
+  payload: text,
+});
+
+export const actionNoteSelectedToggle = ID => ({
+  type: NOTE_SELECTED_TOGGLE,
+  payload: ID,
+});
+
+export const actionNoteGetLatest = () => ({
+  type: NOTE_GET_LATEST,
+});
+
+export const actionNoteClearAll = () => ({
+  type: NOTE_CLEAR_ALL,
+});
 
 /**
  * This will toggle the seleced value of note that matches the ID that was passed.
  * Pass in a clone of the state and the note ID
  */
-
 const toggleSelected = (clonedNotesState, id) => {
   const newNotes = clonedNotesState;
   const noteLength = newNotes.length;
@@ -45,7 +62,7 @@ const toggleSelected = (clonedNotesState, id) => {
  */
 const noteReducer = (state = [], action) => {
   switch (action.type) {
-    case actionTypes.NOTE_CREATE:
+    case NOTE_CREATE:
       // A new note must be created
       // NOTE: action.payload -  will be the new note text
       state = [
@@ -60,20 +77,20 @@ const noteReducer = (state = [], action) => {
         }];
       break;
 
-    case actionTypes.NOTE_SELECTED_TOGGLE:
-      // The selected property of the matched not must be toggled
+    case NOTE_SELECTED_TOGGLE:
+      // The selected property of the matched note must be toggled
       // Pass in a clone of the state and the note ID
       // NOTE: action.payload -  will be the ID of the note.
       return toggleSelected([...state], action.payload);
 
-    case actionTypes.NOTE_GET_LATEST:
+    case NOTE_GET_LATEST:
       // Get the lastest notes
       // There is no payload
       // Doa  deep clone of the initial note data
       state = deepClone(initialNoteData);
       break;
 
-    case actionTypes.NOTE_CLEAR_ALL:
+    case NOTE_CLEAR_ALL:
       // Clear all the notes
       // There is no payload
       state = [];
@@ -85,6 +102,5 @@ const noteReducer = (state = [], action) => {
 
   return state;
 };
-
 
 export default noteReducer;
