@@ -29,7 +29,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import './styles/index.css';
 import AuthenticationRequired from './components/HOC/AuthenticationHOC';
-
+import logger from './middlewareCustom/logger';
 
 // TODO: Turn redux devtools off for production using process.env.REACT_APP_ENV
 // const store = createStore(combineReducers({ noteReducer }), {}, applyMiddleware(createLogger()));
@@ -42,7 +42,7 @@ const store = createStore(
   // Enhancer
   compose(
     // Middleware
-    applyMiddleware(thunk),
+    applyMiddleware(thunk, logger),
     // Redux browser debugger
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
   ),
