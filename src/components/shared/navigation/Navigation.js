@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { PropTypes } from 'prop-types';
+import { isEmpty } from 'lodash';
 import NavButtonLink from './NavButtonLink';
 import { actionLoginDialogOpen } from '../../../Reducers/loginReducer';
 
@@ -11,7 +12,7 @@ class Navigation extends Component {
         <ul className="nav nav-pills">
           <li className="nav-item">
 
-            {this.props.authReducerProfileData === null &&
+            {isEmpty(this.props.authReducerProfileData) &&
               <button
                 type="button"
                 className="btn btn-small h_margin-r-20px"
@@ -19,7 +20,7 @@ class Navigation extends Component {
               ><span>LOGIN <i className="fa fa-unlock" /></span>
               </button>
             }
-            {this.props.authReducerProfileData !== null &&
+            {!isEmpty(this.props.authReducerProfileData) &&
             <button
               type="button"
               className="btn btn-small h_margin-r-20px"

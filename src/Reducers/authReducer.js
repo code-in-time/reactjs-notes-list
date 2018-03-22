@@ -3,11 +3,11 @@ import { LOGIN_API_SUCCESS } from './loginReducer';
 
 /**
  * The default state
- * null - logged out
+ * object - logged out empty object
  * object - logged in auth user
  */
 const defaultState = {
-  profileData: null,
+  profileData: {},
 };
 
 // the auth reducer
