@@ -28,6 +28,7 @@ import { actionNoteGetLatest } from './Reducers/noteReducer';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../node_modules/font-awesome/css/font-awesome.min.css';
 import './styles/index.css';
+import AuthenticationRequired from './components/HOC/AuthenticationHOC';
 
 
 // TODO: Turn redux devtools off for production using process.env.REACT_APP_ENV
@@ -47,6 +48,13 @@ const store = createStore(
   ),
 );
 
+// Create the componenets that require authentication
+const AuthRequiredPageMovies = AuthenticationRequired(PageMovies);
+const AuthRequiredPagePhoneBook = AuthenticationRequired(PagePhoneBook);
+const AuthRequiredPageMaterialui = AuthenticationRequired(PageMaterialui);
+const AuthRequiredPageReduxForm = AuthenticationRequired(PageReduxForm);
+const AuthRequiredPageReduxThunk = AuthenticationRequired(PageReduxThunk);
+
 /* eslint-enable */
 
 class Index extends Component {
@@ -61,19 +69,20 @@ class Index extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <Router>
-          <Switch>
-            <Route exact path="/" component={PageHome} />
-            <Route path="/movies" component={PageMovies} />
-            <Route path="/phone" component={PagePhoneBook} />
-            <Route path="/material-ui" component={PageMaterialui} />
-            <Route path="/reduxform" component={PageReduxForm} />
-            <Route path="/reduxthunk" component={PageReduxThunk} />
-          </Switch>
-        </Router>
+        <div>
+          <Router>
+            <Switch>
+              <Route exact path="/" component={PageHome} />
+              <Route path="/movies" component={AuthRequiredPageMovies} />
+              <Route path="/phone" component={AuthRequiredPagePhoneBook} />
+              <Route path="/material-ui" component={AuthRequiredPageMaterialui} />
+              <Route path="/reduxform" component={AuthRequiredPageReduxForm} />
+              <Route path="/reduxthunk" component={AuthRequiredPageReduxThunk} />
+            </Switch>
+          </Router>
 
-        <LoginDialogue />
-
+          <LoginDialogue />
+        </div>
       </MuiThemeProvider>
     );
   }
