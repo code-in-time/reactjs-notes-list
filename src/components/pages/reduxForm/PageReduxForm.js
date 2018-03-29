@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Navigation from '../../shared/navigation/Navigation';
 import GeneralForm from './GeneralForm';
+import SimpleForm from './SimpleForm'
 
 /**
  * This is the other Page
@@ -19,6 +20,15 @@ class PageReduxForm extends Component {
             </div>
           </div>
         </div>
+
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col">
+              <SimpleForm />
+            </div>
+          </div>
+        </div>
+
       </div>
     );
   }
