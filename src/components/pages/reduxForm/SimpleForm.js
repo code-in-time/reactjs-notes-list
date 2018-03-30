@@ -1,11 +1,14 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { maxLength15, minLength8, required } from '../../../utils/validationRules';
 
 const customSubmit = (values) => {
   console.log('customSubmit', values);
 };
 
-const renderField = ({meta, input, placeholder, label, type, meta: {touched, error, warning}}) => (
+const renderField = ({
+ meta, input, placeholder, label, type, meta: { touched, error, warning },
+}) => (
   <div>
     <label htmlFor={label}>{label}</label>
     <div>
@@ -16,7 +19,9 @@ const renderField = ({meta, input, placeholder, label, type, meta: {touched, err
 );
 
 const SimpleForm = (props) => {
-  const { handleSubmit, pristine, reset, submitting } = props;
+  const {
+ handleSubmit, pristine, reset, submitting 
+} = props;
   return (
     <form onSubmit={handleSubmit(customSubmit)}>
       <div>
@@ -27,6 +32,7 @@ const SimpleForm = (props) => {
             type="text"
             placeholder="First Name"
             label="First Name label"
+            validate={[required, maxLength15, minLength8]}
           />
         </div>
       </div>
@@ -38,6 +44,7 @@ const SimpleForm = (props) => {
             type="text"
             placeholder="Last Name"
             label="Last Name label"
+            validate={[required, maxLength15, minLength8]}
           />
         </div>
       </div>
@@ -65,6 +72,5 @@ const validate = (values) => {
 };
 
 export default reduxForm({
-  form: 'simple', // a unique identifier for this form
-  validate,
+  form: 'simple',
 })(SimpleForm);

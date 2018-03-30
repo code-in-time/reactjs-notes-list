@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Navigation from '../../shared/navigation/Navigation';
 import GeneralForm from './GeneralForm';
-import SimpleForm from './SimpleForm'
+import SimpleForm from './SimpleForm';
 
 /**
  * This is the other Page
