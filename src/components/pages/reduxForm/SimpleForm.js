@@ -1,13 +1,33 @@
 import React from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, SubmissionError } from 'redux-form';
+import { connect } from 'react-redux';
 import { maxLength15, minLength8, required } from '../../../utils/validationRules';
+
+
+const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+
+function submit(values) {
+  return sleep(1000).then(() => {
+    // simulate server latency
+    if (!['john', 'paul', 'george', 'ringo'].includes(values.firstName)) {
+      throw new SubmissionError({
+        firstName: 'User does not exist',
+        _error: 'Login failed!',
+      });
+    } else {
+      window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
+    }
+  });
+}
 
 const customSubmit = (values) => {
   console.log('customSubmit', values);
+
+  submit(values);
 };
 
 const renderField = ({
- meta, input, placeholder, label, type, meta: { touched, error, warning },
+  meta, input, placeholder, label, type, meta: { touched, error, warning },
 }) => (
   <div>
     <label htmlFor={label}>{label}</label>
@@ -18,37 +38,48 @@ const renderField = ({
   </div>
 );
 
-const SimpleForm = (props) => {
-  const {
- handleSubmit, pristine, reset, submitting 
-} = props;
+const CustomFieldFirstName = (props) => {
   return (
-    <form onSubmit={handleSubmit(customSubmit)}>
+    <Field
+      name="firstName"
+      component={renderField}
+      type="text"
+      placeholder="First Name"
+      label="First Name label"
+      validate={[required, maxLength15, minLength8]}
+    />);
+};
+
+const CustomFieldLastName = (props) => {
+  return (
+    <Field
+      name="lastName"
+      component={renderField}
+      type="text"
+      placeholder="Last Name"
+      label="Last Name label"
+      validate={[required, maxLength15, minLength8]}
+    />);
+};
+
+let SimpleForm = (props) => {
+  const {
+    handleSubmit, pristine, reset, submitting,
+  } = props;
+  return (
+    <form onSubmit={handleSubmit(submit)}>
       <div>
         <div>
-          <Field
-            name="firstName"
-            component={renderField}
-            type="text"
-            placeholder="First Name"
-            label="First Name label"
-            validate={[required, maxLength15, minLength8]}
-          />
+          <CustomFieldFirstName {...props} />
         </div>
       </div>
       <div>
         <div>
-          <Field
-            name="lastName"
-            component={renderField}
-            type="text"
-            placeholder="Last Name"
-            label="Last Name label"
-            validate={[required, maxLength15, minLength8]}
-          />
+          <CustomFieldLastName {...props} />
         </div>
       </div>
       <div>
+        {props.error && <div>{props.error}</div>}
         <button type="submit" disabled={pristine || submitting}>
           Submit
         </button>
@@ -60,17 +91,12 @@ const SimpleForm = (props) => {
   );
 };
 
-const validate = (values) => {
-  const errors = {};
-  if (!values.firstName) {
-    errors.firstName = 'Required firstName';
-  }
-  if (!values.lastName) {
-    errors.lastName = 'Required lastName';
-  }
-  return errors;
-};
+// You have to connect() to any reducers that you wish to connect to yourself
+SimpleForm = connect(state => ({
+  initialValues: state.simpleFormReducer, // pull initial values from account reducer
+}))(SimpleForm);
 
 export default reduxForm({
   form: 'simple',
+  enableReinitialize: true,
 })(SimpleForm);
