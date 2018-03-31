@@ -15,7 +15,7 @@ function submit(values) {
         _error: 'Login failed!',
       });
     } else {
-      window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`)
+      window.alert(`You submitted:\n\n${JSON.stringify(values, null, 2)}`);
     }
   });
 }
@@ -38,9 +38,8 @@ const renderField = ({
   </div>
 );
 
-const CustomFieldFirstName = (props) => {
-  return (
-    <Field
+const CustomFieldFirstName = props => (
+  <Field
       name="firstName"
       component={renderField}
       type="text"
@@ -48,19 +47,16 @@ const CustomFieldFirstName = (props) => {
       label="First Name label"
       validate={[required, maxLength15, minLength8]}
     />);
-};
 
-const CustomFieldLastName = (props) => {
-  return (
-    <Field
+const CustomFieldLastName = props => (
+  <Field
       name="lastName"
       component={renderField}
       type="text"
       placeholder="Last Name"
       label="Last Name label"
       validate={[required, maxLength15, minLength8]}
-    />);
-};
+  />);
 
 let SimpleForm = (props) => {
   const {
@@ -91,12 +87,16 @@ let SimpleForm = (props) => {
   );
 };
 
-// You have to connect() to any reducers that you wish to connect to yourself
-SimpleForm = connect(state => ({
-  initialValues: state.simpleFormReducer, // pull initial values from account reducer
-}))(SimpleForm);
-
-export default reduxForm({
+SimpleForm = reduxForm({
   form: 'simple',
   enableReinitialize: true,
 })(SimpleForm);
+
+// You have to connect() to any reducers that you wish to connect to yourself
+SimpleForm = connect(
+  state => ({ initialValues: state.simpleFormReducer }),
+  // This was reset in the browser using the redux debugger
+  { resetForm: { type: 'resetForm', payload: { firstName: 'xxxxccccccc', lastName: 'vvvvvvbbbbbb' } } },
+)(SimpleForm);
+
+export default SimpleForm;
