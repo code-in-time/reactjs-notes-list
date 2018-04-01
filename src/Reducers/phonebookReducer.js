@@ -78,12 +78,3 @@ const phoneBookReducer = (state = initialPhoneBookData, action) => {
 
 export default phoneBookReducer;
 
-/**
- * SELECTOR
- */
-// Phone book selector
-export const selectorPhoneBookGetFirstNameNumber = (state) => {
-  const firstEntry = state.phoneBookReducer.data[0];
-  const tmpl = `${firstEntry.name} ${firstEntry.phoneNumber} and more text`;
-  return tmpl;
-};
