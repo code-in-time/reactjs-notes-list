@@ -48,11 +48,6 @@ export const actionPhoneBookSearch = searchTerm => ({
 // Reducer
 const phoneBookReducer = (state = initialPhoneBookData, action) => {
   switch (action.type) {
-    // case PHONEBOOK_GET_DATA:
-    //   // Get the phonebook data
-    //   state = deepCloneArray(initialPhoneBookData);
-    //   break;
-
     case PHONEBOOK_ENTRY_ADD:
       // Clone the state.
       state = deepClone(state);
@@ -82,3 +77,13 @@ const phoneBookReducer = (state = initialPhoneBookData, action) => {
 };
 
 export default phoneBookReducer;
+
+/**
+ * SELECTOR
+ */
+// Phone book selector
+export const selectorPhoneBookGetFirstNameNumber = (state) => {
+  const firstEntry = state.phoneBookReducer.data[0];
+  const tmpl = `${firstEntry.name} ${firstEntry.phoneNumber} and more text`;
+  return tmpl;
+};

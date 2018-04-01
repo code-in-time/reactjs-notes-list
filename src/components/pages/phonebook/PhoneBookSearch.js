@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
-import { actionPhoneBookSearch } from '../../../Reducers/phonebookReducer';
+import { actionPhoneBookSearch, selectorPhoneBookGetFirstNameNumber } from '../../../Reducers/phonebookReducer';
 
 class PhoneBookSearch extends Component {
   render() {
     return (
       <div className="PhoneBookEntryAdd card card-body bg-light">
+        <strong>{this.props.firstNameNumber}</strong>
         <h3>Search</h3>
         <div className="row">
           <div className="col">
@@ -28,11 +28,13 @@ class PhoneBookSearch extends Component {
 PhoneBookSearch.propTypes = {
   phoneBookReducerSearchTerm: PropTypes.string.isRequired,
   actionPhoneBookSearch: PropTypes.func.isRequired,
+  firstNameNumber: PropTypes.string.isRequired,
 };
 
 // Using redux the phonebookReducer properties are now props
 const mapStateToProps = state => ({
   phoneBookReducerSearchTerm: state.phoneBookReducer.searchTerm,
+  firstNameNumber: selectorPhoneBookGetFirstNameNumber(state),
 });
 
 const mapDispatchToProps = {
