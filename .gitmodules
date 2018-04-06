@@ -1,0 +1,3 @@
+[submodule "submobules/javascript-random-number"]
+	path = submobules/javascript-random-number
+	url = git@github.com:code-in-time/javascript-random-number.git
