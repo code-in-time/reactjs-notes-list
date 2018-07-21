@@ -71,7 +71,7 @@ class GeneralFormClass extends Component {
   }
 
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit, change } = this.props;
 
     return (
       <div className="GeneralForm h_max-w-700px container-fluid">
@@ -106,11 +106,18 @@ class GeneralFormClass extends Component {
               type="select"
               validate={[vRequired]}
               onChange={(e, v) => {
-              console.log('transport select', [e, v]);
+              // console.log('transport select------------------------', [e, v]);
+              //   if (v === '') {
+              //     console.log('transport select------------------------ VALUE = ""',)
+                  // clear the planeType and the CarType
+                  this.props.change('CarType', '');
+                  this.props.change('planeType', '');
+                // }
+              // );
             }} 
             />
 
-            {(this.props.TransportValue === 'car' || this.props.TransportValue === 'bothTypes') && <Field
+            {(this.props.Transport === 'car' || this.props.Transport === 'bothTypes') && <Field
               component={GeneralInput}
               txtLabel="CarType"
               name="CarType"
@@ -118,7 +125,7 @@ class GeneralFormClass extends Component {
               validate={[]} 
             />
             }
-            {(this.props.TransportValue === 'plane' || this.props.TransportValue === 'bothTypes') && <Field
+            {(this.props.Transport === 'plane' || this.props.Transport === 'bothTypes') && <Field
               component={GeneralInput}
               txtLabel="PlaneType"
               name="planeType"
@@ -158,7 +165,7 @@ const selector = formValueSelector('GeneralForm');
 
 
 const mapStateToProps = (state) => ({
-    TransportValue: selector(state, 'Transport'),
+  Transport: selector(state, 'Transport'),
   });
 
 const GeneralFormConnected = connect(mapStateToProps)(GeneralForm);
