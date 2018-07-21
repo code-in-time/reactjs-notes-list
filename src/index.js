@@ -53,6 +53,7 @@ const AuthRequiredPageMovies = AuthenticationRequired(PageMovies);
 const AuthRequiredPagePhoneBook = AuthenticationRequired(PagePhoneBook);
 const AuthRequiredPageMaterialui = AuthenticationRequired(PageMaterialui);
 const AuthRequiredPageReduxForm = AuthenticationRequired(PageReduxForm);
+
 const AuthRequiredPageReduxThunk = AuthenticationRequired(PageReduxThunk);
 
 /* eslint-enable */
@@ -76,7 +77,7 @@ class Index extends Component {
               <Route path="/movies" component={AuthRequiredPageMovies} />
               <Route path="/phone" component={AuthRequiredPagePhoneBook} />
               <Route path="/material-ui" component={AuthRequiredPageMaterialui} />
-              <Route path="/reduxform" component={AuthRequiredPageReduxForm} />
+              <Route path="/reduxform" component={PageReduxForm} />
               <Route path="/reduxthunk" component={AuthRequiredPageReduxThunk} />
             </Switch>
           </Router>
